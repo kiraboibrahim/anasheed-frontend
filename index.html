@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANASHEED</title>
-    <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
-
+    <!--base href="https://kiraboibrahim.github.io/anasheed-frontend"-->
+    <!-- For localhost -->
+    <base href="http://localhost">
     <link rel="manifest" href="manifest.webmanifest" />
 
     <link rel="shortcut icon" type="image/png" href="icon-512x512.png"/>
@@ -24,7 +25,9 @@
     <script defer src="js/jquery-3.6.0.min.js"></script>
     <script defer src="js/bootstrap.min.js"></script>
     <script defer src="js/nav.js"></script>
-    <script async src="sw.js"></script>
+    <script async src="sw-reg.js"></script>
+    <script async src="service-worker.js"></script>
+
   </head>
   <body>
     <header class="m-logo">
