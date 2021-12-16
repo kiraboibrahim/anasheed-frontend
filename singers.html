@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasheed Artists</title>
+
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <link rel="shortcut icon" type="image/png" href="/icon-512x512.png"/>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/reuse.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/singers.css">
+    <!--  Javascript -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script defer src="js/nav.js"></script>
+    <script async src="/sw.js"></script>
+  </head>
+  <body>
+    <!-- Common to every page -->
+    <header class="m-logo">
+      <a href="/index.html"><img class="m-logo__img" src="images/logo.jpg" alt="Website Logo"></a>
+    </header>
+
+    <nav class="m-nav navigation">
+      <i class="btn material-icons md-light m-nav__open-nav">menu</i>
+      <ul class="m-nav__menu  navigation__menu">
+        <i class="btn material-icons m-nav__close-nav">close</i>
+        <li class="m-nav__item"><a href="/index.html" class="m-nav__link">HOME</a></li>
+        <li class="m-nav__item m-nav__item--is-active"><a href="/singers.html" class="m-nav__link">SINGERS</a></li>
+        <li class="m-nav__item"><a href="#" class="m-nav__link">ABOUT</a></li>
+      </ul>
+      <form class="search-form" action="#">
+          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, singers">
+      </form>
+      <div class="user-profile">
+        <i class="material-icons btn user-profile__toggler">person</i>
+        <div class="user-profile__menu">
+          <button class="btn btn-success rounded-0 mr-3">LOGIN</button>
+          <button class="btn btn-outline-warning rounded-0">REGISTER</button>
+        </div>
+      </div>
+    </nav>
+    <!-- End of every Common Element -->
+    <main class="singers">
+      <article class="article">
+        <header class="article__header">
+          <h2 class="article__title">Singers</h2>
+        </header>
+
+        <div class="article__body l-table">
+
+          <div class="m-media media singer">
+            <!-- A track component -->
+            <div class="m-media__image media__image singer__image"><!-- Album art --></div>
+            <div class="m-media__body singer__info">
+              <h2 class="media__name singer__name"> <a class="media__link singer__link" href="#">Maher Zain</a></h2>
+              <span class="singer__num-songs d-block mb-3">20 Clips</span>
+              <a href="#"><button class="btn btn-sm btn-danger rounded-0">Show Songs</button></a>
+            </div>
+          </div>
+
+          <div class="m-media media singer">
+            <!-- A track component -->
+            <div class="m-media__image media__image singer__image"><!-- Album art --></div>
+            <div class="m-media__body singer__info">
+              <h2 class="media__name singer__name"> <a class="media__link singer__link" href="#">Maher Zain</a></h2>
+              <span class="singer__num-songs d-block mb-3">20 Clips</span>
+              <a href="#"><button class="btn btn-sm btn-danger rounded-0">Show Songs</button></a>
+            </div>
+          </div>
+
+          <div class="m-media media singer">
+            <!-- A track component -->
+            <div class="m-media__image media__image singer__image"><!-- Album art --></div>
+            <div class="m-media__body singer__info">
+              <h2 class="media__name singer__name"> <a class="media__link singer__link" href="#">Maher Zain</a></h2>
+              <span class="singer__num-songs d-block mb-3">20 Clips</span>
+              <a href="#"><button class="btn btn-sm btn-danger rounded-0">Show Songs</button></a>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

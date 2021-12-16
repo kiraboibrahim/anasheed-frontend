@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANASHEED</title>
+
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <link rel="shortcut icon" type="image/png" href="/icon-512x512.png"/>
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/css/reuse.css">
+    <link rel="stylesheet" href="/css/index.css">
+
+    <!--  Javascript -->
+    <script defer src="/js/jquery-3.6.0.min.js"></script>
+    <script defer src="/js/bootstrap.min.js"></script>
+    <script defer src="/js/nav.js"></script>
+    <script async src="/sw.js"></script>
+  </head>
+  <body>
+    <header class="m-logo">
+      <a href="/index.html"><img class="m-logo__img" src="images/logo.jpg" alt="Website Logo"></a>
+    </header>
+
+    <nav class="m-nav navigation">
+      <i class="btn material-icons md-light m-nav__open-nav">menu</i>
+      <ul class="m-nav__menu  navigation__menu">
+        <i class="btn material-icons m-nav__close-nav">close</i>
+        <li class="m-nav__item m-nav__item--is-active"><a href="/index.html" class="m-nav__link">HOME</a></li>
+        <li class="m-nav__item"><a href="/singers.html" class="m-nav__link">SINGERS</a></li>
+        <li class="m-nav__item"><a href="#" class="m-nav__link">ABOUT</a></li>
+      </ul>
+      <form class="search-form" action="#">
+          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, singers">
+      </form>
+      <div class="user-profile">
+        <i class="material-icons btn user-profile__toggler">person</i>
+        <div class="user-profile__menu">
+          <button class="btn btn-success rounded-0 mr-3">LOGIN</button>
+          <button class="btn btn-outline-warning rounded-0">REGISTER</button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="m-slide img-slide">
+      <div class="overlay">
+
+      </div>
+      <!-- Image slides -->
+      <div class="m-slide__item img-slide__item"></div>
+      <div class="m-slide__indicator">
+        <span></span>
+        <span></span>
+      </div>
+  </section>
+  <div class="top">
+    <article class="top-artists article">
+      <!-- Popular artists -->
+      <header class="top-artists__header article__header">
+        <h1 class="top-artists__title article__title"> Popular Singers </h1>
+      </header>
+      <div class="top-artists__body article__body">
+          <!-- Top atists container-->
+          <div class="m-media m-media--inline media artist">
+              <div class="m-media__img media__image artist__image">
+                  <!-- Singer image, will use a background image instead of img tag -->
+              </div>
+              <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
+          </div>
+          <div class="m-media m-media--inline media artist">
+              <div class="m-media__img media__image artist__image">
+                  <!-- Singer image, will use a background image instead of img tag -->
+              </div>
+              <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
+          </div>
+          <div class="m-media m-media--inline media artist">
+              <div class="m-media__img media__image artist__image">
+                  <!-- Singer image, will use a background image instead of img tag -->
+              </div>
+              <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
+          </div>
+          <div class="m-media m-media--inline media artist">
+              <div class="m-media__img media__image artist__image">
+                  <!-- Singer image, will use a background image instead of img tag -->
+              </div>
+              <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
+          </div>
+          <div class="m-media m-media--inline media artist">
+              <div class="m-media__img media__image artist__image">
+                  <!-- Singer image, will use a background image instead of img tag -->
+              </div>
+              <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
+          </div>
+
+      </div>
+
+      <footer class="top-artists__footer article__footer">
+          <a href="#"><button class="btn btn-primary rounded-0">More artists</button></a>
+      </footer>
+    </article>
+
+    <article class="top-tracks article">
+      <header class="top-tracks__header article__header">
+        <h1 class="top-tracks__title article__title"> Top tracks </h1>
+      </header>
+
+      <div class="top-tracks__body article__body l-table">
+        <!-- Top tracks container -->
+        <div class="m-media media track">
+          <!-- A track component -->
+          <div class="m-media__image media__image track__album-art"><!-- Album art --></div>
+          <div class="m-media__body track__info">
+            <h2 class="media__name track__name"> <a class="media__link track__link" href="#">Track name </a></h2>
+            <span class="track__listens d-block mb-3"> 1000 plays </span>
+            <a href="#"><button class="track__play-btn btn btn-success rounded-0">Play</button></a>
+            <a href="#"><button class="track__download-btn btn btn-outline-danger rounded-0">Download</button></a>
+          </div>
+        </div>
+
+        <div class="m-media media track">
+          <!-- A track component -->
+          <div class="m-media__image media__image track__album-art"><!-- Album art --></div>
+          <div class="m-media__body track__info">
+            <h2 class="media__name track__name"> <a class="media__link track__link" href="#">Track name </a></h2>
+            <span class="track__listens d-block mb-3"> 1000 plays </span>
+            <a href="#"><button class="track__play-btn btn btn-success rounded-0">Play</button></a>
+            <a href="#"><button class="track__download-btn btn btn-outline-danger rounded-0">Download</button></a>
+          </div>
+        </div>
+
+        <div class="m-media media track">
+          <!-- A track component -->
+          <div class="m-media__image media__image track__album-art"><!-- Album art --></div>
+          <div class="m-media__body track__info">
+            <h2 class="media__name track__name"> <a class="media__link track__link" href="#">Track name </a></h2>
+            <span class="track__listens d-block mb-3"> 1000 plays </span>
+            <a href="#"><button class="track__play-btn btn btn-success rounded-0">Play</button></a>
+            <a href="#"><button class="track__download-btn btn btn-outline-danger rounded-0">Download</button></a>
+          </div>
+        </div>
+
+        <div class="m-media media track">
+          <!-- A track component -->
+          <div class="m-media__image media__image track__album-art"><!-- Album art --></div>
+          <div class="m-media__body track__info">
+            <h2 class="media__name track__name"> <a class="media__link track__link" href="#">Track name </a></h2>
+            <span class="track__listens d-block mb-3"> 1000 plays </span>
+            <a href="#"><button class="track__play-btn btn btn-success rounded-0">Play</button></a>
+            <a href="#"><button class="track__download-btn btn btn-outline-danger rounded-0">Download</button></a>
+          </div>
+        </div>
+
+      </div>
+      <footer class="top-tracks__footer article__footer">
+          <a href="#"><button class="btn btn-primary rounded-0">More tracks</button></a>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="page-footer">
+    <!-- Site footer -->
+    <div class="domain-contact">
+      <a class="domain-contact__whatsapp" href="#"><img src="images/whatsapp.png" alt="Whatsapp Icon"></a>
+      <a class="domain-contact__facebook" href="#"><img src="images/facebook.png" alt="Facebook Icon"></a>
+      <h2 class="copyright">&copy; Copyright 2021 ANASHEED</h2>
+    </div>
+    <section class="developer-info">
+      <h2 class="developer-info__title"> Developer's Contact</h2>
+      <a  class="developer-info__facebook" href="https://wa.link/qm60mz"><img src="images/whatsapp.png" alt="Facebook Icon"></a>
+      <a class="developer-info__whatsapp" href="#"><img src="images/facebook.png" alt="Facebook Icon"></a>
+      <a class="developer-info__linkedIn" href="https://www.linkedin.com/in/kirabo-ibrahim-b141121b5"><img src="images/linkedin.png" alt="Facebook Icon"></a>
+      <p class="developer-info__name">Made with love by <strong>Kirabo Ibrahim</strong></p>
+    </section>
+
+    <div class="attribution">
+      <h2 class="attribution__title"> Attribution</h2>
+      <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+      <div>Icons made by <a href="https://www.flaticon.com/authors/ruslan-babkin" title="Ruslan Babkin">Ruslan Babkin</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+      <div>Icons made by <a href="https://www.flaticon.com/authors/riajulislam" title="riajulislam">riajulislam</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </div>
+  </footer>
+  </body>
+</html>

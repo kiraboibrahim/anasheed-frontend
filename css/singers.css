@@ -1,0 +1,19 @@
+.singers {
+  padding: 5%;
+}
+
+.singer {
+
+}
+.singer__name {
+  margin-top: 5px;
+}
+.singer__image {
+  margin-right: 10px;
+  background-image: url(../images/maher-zain-4.jpeg);
+}
+
+.singer__num-songs {
+  font-size: .7em;
+  color: gray;
+}

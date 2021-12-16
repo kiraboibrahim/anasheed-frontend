@@ -1,0 +1,174 @@
+input {
+  outline: none;
+  border-radius: 0;
+  padding: 10px;
+}
+.m-logo {
+  width: 100vw;
+  height: 15vh;
+  max-height: 70px;
+  min-height: 65px;
+  text-align: center;
+}
+.m-logo__img {
+  width: 30%;
+  height: 100%;
+  object-fit: contain;
+}
+.m-nav {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 7px 0 7px 0;
+}
+.m-nav__open-nav {
+  font-size: 30px;
+  color: #212121;
+  display: none;
+}
+.m-nav__menu {
+  display: flex;
+  flex: 2 3 auto;
+  list-style: none;
+  padding: 0;
+  padding-left: 1%;
+  margin: auto;
+}
+.m-nav__close-nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: none;
+}
+.m-nav__item {
+  flex: 1 1 auto;
+  text-align: center;
+  margin-right: 3%;
+  color: black;
+  border: 1px solid black;
+  padding: 7px;
+}
+.m-nav__link {
+  color: black;
+}
+.m-nav__link:hover {
+  text-decoration: none;
+  color: black;
+
+}
+.m-nav__item--is-active {
+  background-color: #ffc107;
+  border: none;
+}
+.m-nav__item--is-active .m-nav__link {
+  color: white;
+}
+.m-media {
+  display: flex;
+}
+.m-media--inline {
+  display: inline-block;
+}
+.m-media--inline .m-media__img {
+  /* If the media is inline, then the image will by default take 80% of the m-media, It can be altered by the user */
+  height: 80%;
+  width: 100%;
+}
+.m-media__image {
+  /* Prevent the image from becoming over sized- flex grow is 0*/
+  flex: 0 1 auto;
+}
+.m-media__title {
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+
+.m-media__body {
+  flex: 1 2 auto;
+}
+.m-slide {
+  height: 67vh;
+  width: auto;
+}
+.m-slide__item {
+  width: 100%;
+  height: 100%;
+}
+.article {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ededed;
+  box-shadow: 3px 3px 4px #ededed;
+}
+
+.article__header {
+ flex: 0 0 auto;
+ border-bottom: 1px solid #ededed;
+ padding: 10px;
+}
+ .article__title {
+   font-size: 1.2em;
+ }
+ .article__body {
+   padding: 2%;
+ }
+
+ .article__footer {
+   padding: 10px;
+   border-top: 1px solid #ededed;
+   text-align: right;
+ }
+
+ /* helper classes */
+ .h-input-float {
+    border: 1px solid #ededed;
+    box-shadow: 1px 1px 3px #ededed;
+ }
+ /* Layout Styles */
+ .l-table {
+   display: grid;
+   grid-gap: 10px;
+   grid-auto-rows: auto;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ }
+
+ /* Navigation for the mobile screen */
+@media screen and (max-width: 768px) {
+  .m-nav__menu {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5%;
+    margin: 0;
+    z-index: 1000;
+    /* Animate the left position */
+    transition-property: left;
+    transition-duration: .6s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0;
+}
+  .m-nav__item {
+    flex: 0 1 auto;
+    margin: 0;
+    border: none;
+    text-align: left;
+    margin-bottom: 23px;
+  }
+  .m-nav__open-nav {
+    display: inline-block;
+  }
+
+  .m-nav__close-nav {
+    display: inline-block;
+    position
+  }
+
+}
+
+material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
