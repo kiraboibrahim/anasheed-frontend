@@ -34,7 +34,7 @@ var urlsToPrefetch = [
   '/css/bootstrap.min.css',
   '/css/index.css',
   '/css/normalize.css',
-  '/css/reuse.css'
+  '/css/reuse.css',
 
   '/js/bootstrap.min.js',
   '/js/cache-polyfill.js',
