@@ -4,30 +4,57 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANASHEED</title>
-    <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
-    <!-- For localhost>
-    <base href="http://localhost"-->
-    <link rel="manifest" href="manifest.webmanifest" />
+    <!--base href="https://kiraboibrahim.github.io/anasheed-frontend/"-->
+    <!-- For localhost -->
+    <base href="http://192.168.43.54/">
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="shortcut icon" type="image/png" href="icon-512x512.png"/>
+    <!-- Open Sans font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
     <!-- Styles -->
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet">
+
     <link rel="stylesheet" href="css/reuse.css">
     <link rel="stylesheet" href="css/index.css">
+
+    <!-- Google auth -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 
     <!--  Javascript -->
     <script defer src="js/jquery-3.6.0.min.js"></script>
     <script defer src="js/bootstrap.min.js"></script>
     <script defer src="js/nav.js"></script>
-    <script async src="sw-reg.js"></script>
-    <script async src="service-worker.js"></script>
+    <script defer src="js/lazyloading.js"></script>
 
+    <!-- Service workers -->
+    <script async src="sw_reg.js"></script>
+    <script async src="sw.js"></script>
   </head>
   <body>
     <header class="m-logo">
@@ -40,30 +67,25 @@
         <i class="btn material-icons m-nav__close-nav">close</i>
         <li class="m-nav__item m-nav__item--is-active"><a href="index.html" class="m-nav__link">HOME</a></li>
         <li class="m-nav__item"><a href="singers.html" class="m-nav__link">SINGERS</a></li>
-        <li class="m-nav__item"><a href="#" class="m-nav__link">ABOUT</a></li>
+        <li class="m-nav__item"><a href="about.html" class="m-nav__link">ABOUT</a></li>
       </ul>
       <form class="search-form" action="#">
           <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, singers">
       </form>
       <div class="user-profile">
-        <i class="material-icons btn user-profile__toggler">person</i>
-        <div class="user-profile__menu">
-          <button class="btn btn-success rounded-0 mr-3">LOGIN</button>
-          <button class="btn btn-outline-warning rounded-0">REGISTER</button>
-        </div>
+        <img src="images/account.png" class="btn user-profile__toggler">
       </div>
     </nav>
 
     <section class="m-slide img-slide">
       <div class="overlay">
-
+        <h1 class="cta-message"> DOWNLOAD, LISTEN TO ANASHEED, FOR FREE</h1>
+        <div class="mt-3">
+          <a href="singers.html" class="btn btn-danger rounded-0 px-4 cta-btn">LISTEN NOW</a>
+        </div>
       </div>
       <!-- Image slides -->
       <div class="m-slide__item img-slide__item"></div>
-      <div class="m-slide__indicator">
-        <span></span>
-        <span></span>
-      </div>
   </section>
   <div class="top">
     <article class="top-artists article">
@@ -74,31 +96,31 @@
       <div class="top-artists__body article__body">
           <!-- Top atists container-->
           <div class="m-media m-media--inline media artist">
-              <div class="m-media__img media__image artist__image">
+              <div class="m-media__img media__image artist__image lazy" data-src="images/maher-zain-4.jpeg">
                   <!-- Singer image, will use a background image instead of img tag -->
               </div>
               <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
           </div>
           <div class="m-media m-media--inline media artist">
-              <div class="m-media__img media__image artist__image">
+              <div class="m-media__img media__image artist__image lazy" data-src="images/maher-zain-4.jpeg">
                   <!-- Singer image, will use a background image instead of img tag -->
               </div>
               <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
           </div>
           <div class="m-media m-media--inline media artist">
-              <div class="m-media__img media__image artist__image">
+              <div class="m-media__img media__image artist__image lazy" data-src="images/maher-zain-4.jpeg">
                   <!-- Singer image, will use a background image instead of img tag -->
               </div>
               <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
           </div>
           <div class="m-media m-media--inline media artist">
-              <div class="m-media__img media__image artist__image">
+              <div class="m-media__img media__image artist__image lazy" data-src="images/maher-zain-4.jpeg">
                   <!-- Singer image, will use a background image instead of img tag -->
               </div>
               <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
           </div>
           <div class="m-media m-media--inline media artist">
-              <div class="m-media__img media__image artist__image">
+              <div class="m-media__img media__image artist__image lazy" data-src="images/maher-zain-4.jpeg">
                   <!-- Singer image, will use a background image instead of img tag -->
               </div>
               <h2 class="m-media__body media__name artist__name"><a class="media__link artist__link" href="#">Artist Name</a></h2>
@@ -107,7 +129,7 @@
       </div>
 
       <footer class="top-artists__footer article__footer">
-          <a href="#"><button class="btn btn-primary rounded-0">More artists</button></a>
+          <a href="singers.html"><button class="btn btn-primary rounded-0">More artists</button></a>
       </footer>
     </article>
 
@@ -163,11 +185,39 @@
         </div>
 
       </div>
-      <footer class="top-tracks__footer article__footer">
-          <a href="#"><button class="btn btn-primary rounded-0">More tracks</button></a>
-      </footer>
     </article>
   </div>
+<!-- Google sign in pop up -->
+  <div id="g_id_onload"
+     data-client_id="948572343760-4v3bom0qkp4d8v7lomg9ut4hvfpivp6l.apps.googleusercontent.com"
+     data-callback="handleCredentialResponse">
+  </div>
+
+  <script>
+    function decodeJwtResponse(jwt) {
+      let header, payload;
+      let components = jwt.split(".");
+      header = atob(components[0]);
+      payload = JSON.parse(atob(components[1]));
+      return payload;
+
+    }
+    function handleCredentialResponse(response) {
+       // decodeJwtResponse() is a custom function defined by you
+       // to decode the credential response.
+       const responsePayload = decodeJwtResponse(response.credential);
+
+       // Save these in local storage to retrieve them across pages
+
+       console.log("ID: " + responsePayload.sub);
+       console.log('Full Name: ' + responsePayload.name);
+       console.log('Given Name: ' + responsePayload.given_name);
+       console.log('Family Name: ' + responsePayload.family_name);
+       console.log("Image URL: " + responsePayload.picture);
+       console.log("Email: " + responsePayload.email);
+    }
+  </script>
+
 
   <footer class="page-footer">
     <!-- Site footer -->

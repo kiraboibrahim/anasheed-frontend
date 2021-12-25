@@ -1,0 +1,188 @@
+/* styling the range input */
+input[type="range"] {
+  position: relative;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 19px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+}
+input[type="range"]::before {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 0;
+  width: var(--seek-before-width);
+  height: 3px;
+  background-color: #007db5;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  border: 1px solid #007db5;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  margin: -7px 0 0 0;
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: #007db5;
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+}
+input[type="range"]::-moz-range-progress {
+  background-color: #007db5;
+}
+
+input[type="range"]::-moz-range-thumb {
+  box-sizing: content-box;
+  border: 1px solid #007db5;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+input[type="range"]:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: #007db5;
+}
+/* This app does not intentionally support IE browsers, so this section has been commented out */
+/*
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: transparent;
+    border: solid transparent;
+    color: transparent;
+  }
+
+  input[type="range"]::-ms-fill-lower {
+    background-color: #007db5;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+  }
+  input[type="range"]::-ms-thumb {
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  input[type="range"]:active::-ms-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+  }
+*/
+
+/* End */
+
+.m-audio-player {
+  margin: 5% 5% 1% 5%;
+  padding: 1%;
+  border: 1px solid #ededed;
+  box-shadow: 0 0 5px #ededed;
+  --seek-before-width: 0%;
+  --buffered-width: 0%;
+}
+
+.m-audio-player__current-track-name {
+  font-size: .9em;
+  font-weight: bold;
+  text-align: center;
+}
+.m-audio-player__seek-slider-container {
+  padding: 1%;
+}
+.m-audio-player__seek-slider {
+  width: 100%;
+}
+
+.m-audio-player__seek-slider:focus {
+  outline: none;
+}
+.m-audio-player__time {
+  display: flex;
+}
+.m-audio-player__played-time {
+  margin-right: auto;
+}
+.m-audio-player__played-time, .m-audio-player__duration {
+  font-size: .8em;
+  display: inline-block;
+}
+
+.m-audio-player__controls {
+  text-align: center;
+}
+
+.m-audio-player__prev,
+.m-audio-player__play,
+.m-audio-player__next {
+  display: inline-block;
+  margin-right: 3%;
+}
+
+.m-audio-player__play {
+  position: relative;
+}
+.m-audio-player__prev-btn,
+.m-audio-player__play-btn,
+.m-audio-player__next-btn {
+  cursor: pointer;
+}
+
+.m-audio-player__play--is-loading::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 4px solid transparent;
+  margin: auto;
+  border-top: 4px solid #519259;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  animation: loading-spinner 1s ease infinite;
+}
+
+.m-audio-player__play--is-loading .m-audio-player__play-btn {
+  visibility: hidden;
+}
+
+.m-audido-player__prev, .m-audido-player__next, .m-audido-player__play {
+  font-size: 30px;
+}
+
+
+@keyframes loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}

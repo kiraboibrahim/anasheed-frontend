@@ -1,3 +1,6 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 .artist {
   width: 150px;
@@ -19,16 +22,10 @@
   justify-content: flex-end;
   flex: 1 1 auto;
 }
-.user-profile__menu::after {
-  /* Arrow for the drop down */
-}
 .user-profile__toggler {
   margin: 0 auto 0 auto;
-  display: none;
   color: #516beb;
   font-size: 30px;
-  border: 1px solid gray;
-  border-radius: 50%;
   padding: 3px;
 }
 .navigation {
@@ -41,8 +38,9 @@
 
 .img-slide {
   width: 100vw;
+  margin: 0;
   position: relative;
-  background-image: url(../images/bg.jpg);
+  background-image: url(../images/headphones_large.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -53,8 +51,17 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .5);
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .8);
 }
+.cta-message {
+  font-size: 1.5em;
+  color: white;
+}
+
 .top {
   padding: 5%;
 }
@@ -77,7 +84,7 @@
 }
 
 .artist__image {
-  background-image: url(../images/maher-zain-1.jpeg);
+  background-image: url(../images/placeholder-loading.gif);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -119,7 +126,7 @@
 
  .track__album-art {
    margin-right: 10px;
-   background-image: url(../images/assalam-alayka-album-art.jpeg);
+   background-image: url(../images/music.png);
  }
  .track__name {
    margin-top: 5px;
@@ -168,6 +175,10 @@
    font-weight: bold;
  }
 
+ .template {
+   display: none;
+ }
+
  @media screen and (max-width: 1024px) {
    .page-footer {
      flex-direction: column;
@@ -175,11 +186,11 @@
    .domain-contact {
      margin-bottom: 20px;
    }
-   .user-profile__menu {
-     display: none;
-   }
-   .user-profile__toggler {
-     display: inline-block;
-   }
 
+ }
+
+ @media screen and (max-width: 600px) {
+   .cta-message {
+     font-size: 1.3em;
+   }
  }

@@ -10,10 +10,84 @@
 }
 .singer__image {
   margin-right: 10px;
-  background-image: url(../images/maher-zain-4.jpeg);
+  background-image: url(../images/placeholder-loading.gif);
 }
 
 .singer__num-songs {
   font-size: .7em;
   color: gray;
+}
+
+.current-artist-template {
+  display: flex;
+  height: 160px;
+  margin: 5%;
+  border: 1px solid #041c32;
+  box-shadow: 0 0 4px #041c32;
+  padding: 2%;
+  background-color: #041c32;
+}
+.current-artist-template__name {
+  color: gray;
+  font-size: 1em;
+}
+.current-artist-template__num-songs {
+  font-size: .7em;
+  color: gray;
+}
+.current-artist-template__image {
+  flex: 0 0 120px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+}
+.current-artist-template__info-share-wrapper {
+  flex: 2 1 auto;
+  display: flex;
+}
+.current-artist-template__info {
+  flex: 1 1 auto;
+}
+
+.current-artist-template__share {
+  flex: 1 1 auto;
+  border: none;
+  /* Override the styles applied by the .article class in reuse stylesheet */
+  border: 1px solid gray;
+  box-shadow: none;
+}
+.current-artist-template__header {
+    /* Override the styles applied by the .article__header class in resuse class */
+    border-bottom: none;
+    /* Apply your own border-bottom */
+    border-bottom: 1px solid gray;
+}
+.current-artist-template__share-images {
+  text-align: center;
+}
+.current-artist-template__share img {
+  display: inline-block;
+  margin-right: 5px;
+  height: 25px;
+  width: 25px;
+}
+
+.current-artist-template__share-title {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  color: gray;
+}
+
+@media screen and (max-width: 600px) {
+  .current-artist-template__info-share-wrapper {
+    flex-direction: column;
+  }
+  .current-artist-template__share-images {
+    text-align: left;
+  }
+  .current-artist-template__share-title {
+      text-align: left;
+  }
 }

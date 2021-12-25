@@ -1,0 +1,14 @@
+.about {
+  padding: 5%;
+}
+
+.developer-info {
+  margin-bottom: 30px;
+}
+.developer-info__header, .about-website__header {
+  text-align: center;
+}
+.developer-info__title, .about-website__title {
+  font-size: 1.5em;
+  text-align: center;
+}
