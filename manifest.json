@@ -44,9 +44,18 @@
       "type": "image/png",
       "density": "4.0"
     },
-    "src": "maskable_icon_x512.png",
-    "sizes": "512x512",
-    "type": "image/png",
-    "purpose": "maskable"
+    {
+      "src": "maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+
     ]
 }
