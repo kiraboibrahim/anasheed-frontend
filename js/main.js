@@ -89,32 +89,32 @@ let songs_data = [
   {
     "name": "Insha Allah",
     "listens": 10,
-    "stream_link": "/test_3.mp3",
-    "download_link": "/test_3.mp3"
+    "stream_link": "test_3.mp3",
+    "download_link": "test_3.mp3"
   },
   {
     "name": "Ya Nabbi Salam Alayka",
     "listens": 100,
-    "stream_link": "/test.mp3",
-    "download_link": "/test.mp3"
+    "stream_link": "test.mp3",
+    "download_link": "test.mp3"
   },
   {
     "name": "Burdah",
     "listens": 200,
-    "stream_link": "/test.mp3",
-    "download_link": "/test.mp3"
+    "stream_link": "test.mp3",
+    "download_link": "test.mp3"
   },
   {
     "name": "Medinah",
     "listens": 1000,
-    "stream_link": "/test_3.mp3",
-    "download_link": "/maher-zain/1929"
+    "stream_link": "test_3.mp3",
+    "download_link": "maher-zain/1929"
   },
   {
     "name": "Palestein",
     "listens": 59,
-    "stream_link": "/test_3.mp3",
-    "download_link": "/maher-zain/1929"
+    "stream_link": "test_3.mp3",
+    "download_link": "maher-zain/1929"
   },
 ]; // End Data
 
