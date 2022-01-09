@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0; viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Anasheed">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <meta name="author" content="Kirabo Ibrahim">
+    <meta property="og:title" content="Anasheed artists, anasheed tracks">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="icon-512x512.png">
+    <meta property="og:url" content="singers.html">
+    <meta name="og:description" content="Listen and download all your favorite tracks for anasheed artists.">
+    <meta name="theme-color" content="#dc3545">
+    <meta name="description" content="Listen and download all your favorite tracks for anasheed artists.">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Anasheed">
-    <title>Anasheed Artists</title>
-    <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
+    <title>Anasheed artists, anasheed tracks</title>
+    <!--base href="https://kiraboibrahim.github.io/anasheed-frontend/"-->
 
-    <!-- For localhost>
-    <base href="http://localhost/"-->
+    <!-- For localhost-->
+    <base href="http://localhost/">
 
     <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -29,10 +39,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
-    <meta name="theme-color" content="#dc3545">
+    <link rel="manifest" href="anasheed.webmanifest" />
+
 
     <!-- Open Sans font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,23 +66,12 @@
     <script defer src="js/render.js"></script>
     <script defer src="js/audio-player.js"></script>
     <script defer src="js/lazyloading.js"></script>
-    <script defer src="js/main.js"></script>
+    <script defer src="js/singers.js"></script>
 
     <!-- Service workers -->
     <script async src="sw_reg.js"></script>
     <script async src="sw.js"></script>
 
-    <script defer>
-      $(document).ready(function () {
-          render_singers(singers_container, singers_data, false);
-
-          $(".singer-template__show-songs-link").click(showSongs);
-          const back_btn = $("#back-to-singers");
-          back_btn.click(back_to_singers);
-
-          $(".track__play").click(play_selected_song);
-      }); // end ready
-    </script>
   </head>
   <body>
     <!-- Common to every page -->

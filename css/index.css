@@ -5,6 +5,7 @@ body {
 .artist {
   width: 150px;
   height: 150px;
+  cursor: pointer;
 }
 
 .search-form {

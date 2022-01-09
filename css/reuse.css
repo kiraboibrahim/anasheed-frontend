@@ -21,6 +21,7 @@ input {
   display: flex;
   align-items: center;
   padding: 7px 0 7px 0;
+  background: #fff;
 }
 .m-nav__open-nav {
   font-size: 30px;
@@ -137,9 +138,10 @@ input {
  .h-sticky {
    position: fixed;
    top: 0;
-   left: 0;
    width: 100%;
-   z-index: 2;
+   opacity: 1.0;
+   /* This value is second highest z-index value, so I don't expect with a higher value */
+   z-index: 50;
  }
  /* Layout Styles */
  .l-table {
@@ -162,6 +164,7 @@ input {
     justify-content: center;
     padding: 5%;
     margin: 0;
+    /* This is the highest z-index value */
     z-index: 1000;
     /* Animate the left position */
     transition-property: left;

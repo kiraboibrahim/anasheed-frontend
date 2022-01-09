@@ -1,10 +1,5 @@
-let selected_singer = {
-  name: null,
-  image: null,
-  num_songs: null,
-};
 
-let singers_data = [
+let singers = [
   {
     "name": "Mesut Kurtis",
     "image": "images/artist-placeholder.jpg",
@@ -85,7 +80,7 @@ let singers_data = [
   },
 ];// end data;
 
-let songs_data = [
+let tracks = [
   {
     "name": "Insha Allah",
     "listens": 10,
@@ -118,46 +113,17 @@ let songs_data = [
   },
 ]; // End Data
 
-const back_btn = $("#back-to-singers");
-const singers_container = $("#media-wrapper");
+$(document).ready(function () {
+  // When an artist card is clicked (not exactly the link), follow the artist's link
+  $(".artist-template").click(function() {
+    const url = $(this).find(".artist-template__link").attr("href");
+    document.location = url;
+  }); // End click
+  const top_tracks_container = $(".top-tracks__body");
+  const top_artists_container = $(".top-artists__body");
+  const inline_artist_template = $(".artist-template").clone(true).removeClass("template");
+  const index_track_template = $(".track-template").clone(true).removeClass("template");
+  render_singers_inline(top_artists_container, singers, inline_artist_template, false);
+  render_songs(top_tracks_container, tracks, index_track_template, false);
 
-function showSongs(event) {
-    const link = $(event.target).attr('href');
-    const parent = $(event.target).parents(".singer");
-
-    selected_singer.name = parent.find(".singer__name").text();
-    // Get the background image and strip out all the "url", () characters
-    selected_singer.image = parent.find(".singer__image").css("background-image").replace(/(url\()|"|\)/g, "");
-    selected_singer.num_songs = parent.find(".singer__num-songs").text();
-    // Fetch data over the network and render the songs
-    // let songs_data = fetch_data(link, render_songs);
-    // Example data
-    render_songs(selected_singer, songs_data, false);
-
-    back_btn.removeClass("h-hide");
-    return false;
-}
-
-function back_to_singers() {
-  // Hide the back button when in singers view
-  back_btn.addClass("h-hide");
-  // Change the title back to "Singers" since the songs view is the scope now
-  $(".singers").find(".article__title").text("Singers");
-  $(".current-artist-template").addClass("h-invisible");
-  // Re render the artists, We are restoring the artists view
-  render_singers(singers_container, singers_data, false, true);
-}
-
-function play_selected_song(event) {
-  let target = $(event.target);
-  let name = target.siblings(".track__name").text();
-  let src = target.attr("href");
-  track = {
-    name: `${name}`,
-    src: `${src}`
-  };
-  play(track);
-
-  // Dont follow link
-  return false;
-}
+}); // End ready
