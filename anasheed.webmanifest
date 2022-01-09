@@ -1,7 +1,7 @@
 {
     "theme_color": "#dc3545",
     "background_color": "#dc3545",
-    "display": "fullscreen",
+    "display": "standalone",
     "start_url": "singers.html",
     "name": "ANASHEED",
     "short_name": "ANASHEED",
