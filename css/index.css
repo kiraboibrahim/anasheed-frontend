@@ -31,7 +31,7 @@ body {
 }
 .navigation {
   border: 1px solid #ededed;
-  box-shadow: 3px 3px 4px #ededed;
+  box-shadow: 0 3px 4px #ededed;
 }
 .navigation__menu {
   margin-right: auto;

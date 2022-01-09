@@ -59,7 +59,7 @@ input {
 
 }
 .m-nav__item--is-active {
-  background-color: #ffc107;
+  background-color: #dc3545;
   border: none;
 }
 .m-nav__item--is-active .m-nav__link {
