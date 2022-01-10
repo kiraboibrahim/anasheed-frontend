@@ -180,7 +180,7 @@ body {
    display: none;
  }
 
- .m-audio-player {
+ #audio-player {
    /* override the margin settings in the audio-player.css */
    margin: 5% 0 auto 0 !important;
  }
