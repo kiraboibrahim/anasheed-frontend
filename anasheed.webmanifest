@@ -1,6 +1,6 @@
 {
-    "theme_color": "#dc3545",
-    "background_color": "#dc3545",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
     "display": "standalone",
     "start_url": "singers.html",
     "name": "ANASHEED",
@@ -40,7 +40,8 @@
     {
       "src": "icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     }
 
     ]

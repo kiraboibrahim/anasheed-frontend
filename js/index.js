@@ -113,6 +113,19 @@ let tracks = [
   },
 ]; // End Data
 
+function play_selected_song(event) {
+  event.preventDefault();
+  let target = $(event.target);
+  let name = target.siblings(".track__name").text();
+  let src = target.attr("href");
+  track = {
+    name: `${name}`,
+    src: `${src}`
+  };
+  // From the audio-player.js
+  play(track);
+}
+
 $(document).ready(function () {
   // When an artist card is clicked (not exactly the link), follow the artist's link
   $(".artist-template").click(function() {
@@ -125,5 +138,8 @@ $(document).ready(function () {
   const index_track_template = $(".track-template").clone(true).removeClass("template");
   render_singers_inline(top_artists_container, singers, inline_artist_template, false);
   render_songs(top_tracks_container, tracks, index_track_template, false);
+
+  // Play song 
+  $(".track-template__play").click(play_selected_song);
 
 }); // End ready

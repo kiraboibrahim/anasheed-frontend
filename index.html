@@ -2,9 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <title>Anasheed music and artists</title>
-    <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
-    <!-- For localhost>
-    <base href="http://localhost/"-->
+    <!--base href="https://kiraboibrahim.github.io/anasheed-frontend/"-->
+    <!-- For localhost-->
+    <base href="http://localhost/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0; viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
@@ -16,7 +16,7 @@
     <meta property="og:url" content="index.html">
     <meta name="og:description" content="Listen and download all your favorite tracks for anasheed artists.">
     <meta name="description" content="Listen and download all your favorite tracks for anasheed artists.">
-    <meta name="theme-color" content="#dc3545">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,6 +54,7 @@
 
     <link rel="stylesheet" href="css/reuse.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/audio-player.css">
 
     <!-- Google auth -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -66,6 +67,8 @@
     <script defer src="js/nav.js"></script>
     <script defer src="js/lazyloading.js"></script>
     <script defer src="js/index.js"></script>
+    <script defer src="js/audio-player.js"></script>
+
 
 
     <!-- Service workers -->
@@ -133,6 +136,24 @@
           <a href="singers.html"><button class="btn btn-primary rounded-0">More artists</button></a>
       </footer>
     </article>
+
+    <div class="m-audio-player">
+      <h2 class="m-audio-player__current-track-name">No song selected</h2>
+      <div class="m-audio-player__progress">
+        <div class="m-audio-player__seek-slider-container">
+          <input class="m-audio-player__seek-slider" type="range" min="0" max="100" value="0">
+        </div>
+        <div class="m-audio-player__time">
+          <span class="m-audio-player__played-time">00:00</span>
+          <span class="m-audio-player__duration">--:--</span>
+        </div>
+      </div>
+      <div class="m-audio-player__controls">
+        <div class="m-audio-player__prev"><span class="material-icons m-audio-player__prev-btn">skip_previous</span></div>
+        <div class="m-audio-player__play"><span class="material-icons m-audio-player__play-btn">play_arrow</span></div>
+        <div class="m-audio-player__next"><span class="material-icons m-audio-player__next-btn">skip_next</span></div>
+      </div>
+    </div>
 
     <article class="top-tracks article">
       <header class="top-tracks__header article__header">

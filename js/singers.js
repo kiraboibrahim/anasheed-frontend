@@ -163,7 +163,7 @@ $(document).ready(function () {
     const parent = $(event.target).parents(".singer");
 
     const singer_name = parent.find(".singer__name").text();
-    selected_singer.name = name;
+    selected_singer.name = singer_name;
     // Get the background image and strip out all the "url", () characters
     selected_singer.image = parent.find(".singer__image").css("background-image").replace(/(url\()|"|\)/g, "");
     selected_singer.num_songs = parent.find(".singer__num-songs").text();
