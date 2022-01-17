@@ -8,9 +8,10 @@ body {
 
 #audio-player {
   margin-right: 5%;
+  margin-bottom: 0;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   background-color: #fff;
   z-index: 10;
 }

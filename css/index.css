@@ -61,65 +61,7 @@
  text-align: right;
 }
 
-<<<<<<< HEAD
-=======
- .track__album-art {
-   margin-right: 10px;
-   background-image: url(../images/music.png);
- }
- .track__name {
-   margin-top: 5px;
- }
- .track__listens {
-   font-size: .7em;
-   color: gray;
- }
-
- .page-footer {
-   width: 100vw;
-   display: flex;
-   border-top: 2px solid #ededed;
-   padding: 3%;
- }
- .page-footer img {
-   width: 40px;
-   height: 40px;
- }
- .domain-contact {
-   flex: 1 1 auto;
- }
-
- .copyright {
-   font-size: .8em;
-   margin-top: 5px;
- }
-.developer-info {
-  flex: 1 1 auto;
-}
- .developer-info__title {
-   font-size: 1em;
-   font-weight: bold;
- }
-
- .developer-info__name {
-   font-size: .85em;
- }
-
- .attribution {
-   flex: 1 1 auto;
-   font-size: .9em;
- }
- .attribution__title {
-   font-size: 1.2em;
-   font-weight: bold;
- }
-
- .template {
-   display: none;
- }
-
->>>>>>> b1f4893e2feae78cec6a251aa84c759ddc3e1ddb
- #audio-player {
+#audio-player {
    /* override the margin settings in the audio-player.css */
    margin: 5% 0 auto 0 !important;
  }
