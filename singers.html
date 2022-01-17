@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Anasheed artists, anasheed tracks</title>
+    <title>Anasheed Artists | Anasheed Tracks</title>
     <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
 
     <!-- For localhost>
@@ -54,7 +54,7 @@
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/reuse.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/audio-player.css">
     <link rel="stylesheet" href="css/singers.css">
 
@@ -92,16 +92,10 @@
           <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, singers">
       </form>
       <div class="user-profile">
-        <img src="images/account.png" class="btn user-profile__toggler">
+        <button class="btn btn-primary px-3 rounded-0">SIGN IN</button>
       </div>
     </nav>
     <!-- End of every Common Element -->
-
-    <article class="hero-image">
-        <header class="hero-image__title">
-            <h2 class="hero-image__text"> ANASHEED SINGERS </h2>
-        </header>
-    </article>
 
     <!-- Singer Template -->
     <div class="m-media media singer singer-template template">
@@ -125,33 +119,21 @@
       </div>
     </div>
 
-    <!-- The singer whose songs are displayed -->
-    <article>
-      <div class="current-artist-template h-invisible">
-        <div class="current-artist-template__image"></div>
-        <div class="current-artist-template__info-share-wrapper">
-          <div class="current-artist-template__info">
-            <h2 class="current-artist-template__name">Maher Zain</h2>
-            <span class="current-artist-template__num-songs">9 Clips</span>
-          </div>
 
-          <article class="current-artist-template__share article">
-            <header class="current-artist-template__header article__header p-1">
-              <h2 class="current-artist-template__share-title article__title">SHARE</h2>
-            </header>
+    <main>
+      <article class="article singers" data-loading="true">
+        <header class="article__header d-flex align-items-center">
+          <button class="btn btn-primary mr-4 rounded-0 h-hide" id="back-to-singers">Back</button>
+          <h2 class="article__title singers__title">Anasheed Artists</h2>
+        </header>
 
-            <div class="current-artist-template__share-images article__body">
-              <a href="#"><img src="images/whatsapp.png" alt=""></a>
-              <a href="#"><img src="images/facebook.png" alt=""></a>
-              <a href="#"><img src="images/linkedin.png" alt=""></a>
-            </div>
-          </article>
-        </div>
+        <div class="article__body l-table media-wrapper" id="media-wrapper" data-context="singers"></div>
+        <!-- loading div, always at the bottom -->
+        <div class="loading"></div>
+      </article>
+    </main>
 
-      </div>
-    </article>
-
-    <div class="m-audio-player">
+    <div class="m-audio-player" id="audio-player">
       <h2 class="m-audio-player__current-track-name">No song selected</h2>
       <div class="m-audio-player__progress">
         <div class="m-audio-player__seek-slider-container">
@@ -168,16 +150,5 @@
         <div class="m-audio-player__next"><span class="material-icons m-audio-player__next-btn">skip_next</span></div>
       </div>
     </div>
-
-    <main class="singers">
-      <article class="article">
-        <header class="article__header d-flex align-items-center">
-          <button class="btn btn-primary mr-4 rounded-0 h-hide" id="back-to-singers">Back</button>
-          <h2 class="article__title">Singers</h2>
-        </header>
-
-        <div class="article__body l-table media-wrapper" id="media-wrapper" data-status="loading" data-context="singers"></div>
-      </article>
-    </main>
   </body>
 </html>

@@ -1,61 +1,57 @@
 .about {
   padding: 5%;
-  margin-top: 30px;
+  margin-top: 12px;
+  display: flex;
 }
-
-.about-developer {
-  margin-bottom: 30px;
+.icon {
+  display: inline-block;
+  font-size: 45px;
+}
+.icon-link {
+  color: white;
+}
+.icon-link:hover {
+  text-decoration: none;
+  color: white;
+}
+.icon:not(.last) {
+  margin-right: 4%;
+}
+.mission,
+.contact {
   text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 5%;
+  border-radius: 10px;
+  flex: 0 0 50%;
 }
-.about-developer__header, .about-website__header {
+.mission {
+  margin-right: 5%;
+}
+.mission__header, .contact__header {
   text-align: center;
   margin-bottom: 4%;
 }
-.about-developer__title, .about-website__title {
+.mission__title, .contact__title {
   font-size: 1.3em;
   font-weight: bold;
 }
 
-.about-developer__mantra {
-  color: gray;
-  font-size: .8em;
-}
-.about-developer__name {
-  font-size: 1.1em;
-}
-.about-developer__image {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-
-}
-.about-developer__image img {
-  width: 150px;
-  height: 195px;
-  border-radius: 5px;
+.mission__body {
+  font-size: .9em;
 }
 
-.about-developer__social-contact {
-  padding: 2%;
-  border: 1px solid #ededed;
-  box-shadow: 0 0 4px #ededed;
-}
-.about-developer__social-contact img {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-
-
-.about-website {
+.contact__body {
   text-align: center;
 }
-.about-website__title {
-  font-weight: bold;
-}
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .about {
-    padding: 15%;
+    flex-direction: column;
+  }
+  .mission {
+    margin-right: 0;
+    margin-bottom: 5%;
   }
 }

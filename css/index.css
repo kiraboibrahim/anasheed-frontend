@@ -1,40 +1,7 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-}
-
 .artist {
   width: 150px;
   height: 150px;
   cursor: pointer;
-}
-
-.search-form {
-  flex: 3 1 auto;
-  text-align: right;
-  margin-right: 9px;
-}
-
-.search-form__input {
-  width: 90%;
-}
-
-.user-profile {
-  display: flex;
-  justify-content: flex-end;
-  flex: 1 1 auto;
-}
-.user-profile__toggler {
-  margin: 0 auto 0 auto;
-  color: #516beb;
-  font-size: 30px;
-  padding: 3px;
-}
-.navigation {
-  border: 1px solid #ededed;
-  box-shadow: 0 3px 4px #ededed;
-}
-.navigation__menu {
-  margin-right: auto;
 }
 
 .img-slide {
@@ -70,53 +37,22 @@ body {
 .top-artists {
    margin-top: 20px;
 }
+
+.top-artists[data-loading="true"] .top-artists__body,
+.top-tracks[data-loading="true"] .top-tracks__body {
+  min-height: 50px;
+  background-image: url(../images/loading.gif);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .top-tracks {
  margin-top: 40px;
 }
 .top-artists__body {
   white-space: nowrap;
   overflow: auto;
-}
-.media.artist {
-  border-radius: 10px;
-  margin-right: 10px;
-  width: 150px;
-  height: 150px;
-}
-
-.artist__image {
-  background-image: url(../images/placeholder-loading.gif);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
- .media {
-   height: 120px;
-   border: 1px solid #ededed;
-   box-shadow: 3px 3px 4px #ededed;
- }
- .media__name {
-   font-size: 1em;
- }
-
-.artist__name {
-  padding: 5px;
-}
-
-.media__image {
-  height: 100%;
-  width: 35%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.media__link {
-  color: black;
-}
-.media__link:hover {
-  text-decoration: none;
-  color: black;
 }
 
 .article__footer {
@@ -125,74 +61,9 @@ body {
  text-align: right;
 }
 
- .track__album-art {
-   margin-right: 10px;
-   background-image: url(../images/music.png);
- }
- .track__name {
-   margin-top: 5px;
- }
- .track__listens {
-   font-size: .7em;
-   color: gray;
- }
-
- .page-footer {
-   width: 100vw;
-   display: flex;
-   border-top: 2px solid #ededed;
-   padding: 3%;
- }
- .page-footer img {
-   width: 40px;
-   height: 40px;
- }
- .domain-contact {
-   flex: 1 1 auto;
- }
-
- .copyright {
-   font-size: .8em;
-   margin-top: 5px;
- }
-.developer-info {
-  flex: 1 1 auto;
-}
- .developer-info__title {
-   font-size: 1em;
-   font-weight: bold;
- }
-
- .developer-info__name {
-   font-size: .85em;
- }
-
- .attribution {
-   flex: 1 1 auto;
-   font-size: .9em;
- }
- .attribution__title {
-   font-size: 1.2em;
-   font-weight: bold;
- }
-
- .template {
-   display: none;
- }
-
- .m-audio-player {
+ #audio-player {
    /* override the margin settings in the audio-player.css */
    margin: 5% 0 auto 0 !important;
- }
-
- @media screen and (max-width: 1024px) {
-   .page-footer {
-     flex-direction: column;
-   }
-   .domain-contact {
-     margin-bottom: 20px;
-   }
-
  }
 
  @media screen and (max-width: 600px) {

@@ -1,7 +1,28 @@
-.singers {
+main {
   padding: 5%;
+  margin-bottom: 100px;
+}
+body {
+  overflow-x: hidden;
 }
 
+#audio-player {
+  margin-right: 5%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
+}
+
+
+.singers[data-loading="true"] .loading {
+  min-height: 50px;
+  background-image: url(../images/loading.gif);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .singer__name {
   margin-top: 5px;
 }
@@ -15,81 +36,7 @@
   color: gray;
 }
 
-.current-artist-template {
-  display: flex;
-  height: 160px;
-  margin: 5%;
-  padding: 2%;
-  border: 1px solid #ededed;
-  box-shadow: 0 0 4px #ededed;
-}
-.current-artist-template__name {
-  font-size: 1em;
-}
-.current-artist-template__num-songs {
-  font-size: .7em;
-  color: gray;
-}
-.current-artist-template__image {
-  flex: 0 0 120px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  margin-right: 20px;
-}
-.current-artist-template__info-share-wrapper {
-  flex: 2 1 auto;
-  display: flex;
-}
-.current-artist-template__info {
-  flex: 1 1 auto;
-}
-
-.current-artist-template__share {
-  flex: 1 1 auto;
-}
-
-.current-artist-template__share-images {
-  text-align: center;
-}
-.current-artist-template__share img {
-  display: inline-block;
-  margin-right: 5px;
-  height: 25px;
-  width: 25px;
-}
-
-.current-artist-template__share-title {
-  font-size: 1em;
+.singers__title {
+  font-size: 1.2em;
   font-weight: bold;
-  text-align: center;
-  color: gray;
-}
-
-.hero-image {
-  width: 100vw;
-  height: 65vh;
-  background-image: url(../images/singers_bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom-left-radius: 80% 10%;
-}
-
-.hero-image__title {
-  color: white;
-}
-
-@media screen and (max-width: 600px) {
-  .current-artist-template__info-share-wrapper {
-    flex-direction: column;
-  }
-  .current-artist-template__share-images {
-    text-align: left;
-  }
-  .current-artist-template__share-title {
-      text-align: left;
-  }
 }

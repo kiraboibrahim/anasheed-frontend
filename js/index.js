@@ -136,10 +136,14 @@ $(document).ready(function () {
   const top_artists_container = $(".top-artists__body");
   const inline_artist_template = $(".artist-template").clone(true).removeClass("template");
   const index_track_template = $(".track-template").clone(true).removeClass("template");
+  //Fetch popular artists data and pass it to the render_singers_inline function
   render_singers_inline(top_artists_container, singers, inline_artist_template, false);
+  $(".top-artists").attr("data-loading", "false"); // Turn off the loading gif
+  // Fetch popular tracks data and pass it to the render_songs function
   render_songs(top_tracks_container, tracks, index_track_template, false);
+  $(".top-tracks").attr("data-loading", "false"); // Turn off the loading gif, fetching and rendering completed
 
-  // Play song 
+  // Play song
   $(".track-template__play").click(play_selected_song);
 
 }); // End ready

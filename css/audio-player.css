@@ -98,7 +98,6 @@ input[type="range"]:active::-moz-range-thumb {
 /* End */
 
 .m-audio-player {
-  margin: 5% 5% 1% 5%;
   padding: 1%;
   border: 1px solid #ededed;
   box-shadow: 0 0 5px #ededed;

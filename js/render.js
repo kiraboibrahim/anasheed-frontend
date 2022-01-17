@@ -25,14 +25,6 @@ function render_singers(container, data, template, error, restore=false) {
 
 }
 
-function render_selected_singer(selected_singer, template) {
-  template.find(".current-artist-template__name").text(selected_singer.name);
-  template.find(".current-artist-template__image").css("backgroundImage", `url(${selected_singer.image})`);
-  template.find(".current-artist-template__num-songs").text(selected_singer.num_songs);
-  // Unhide the selected_artist_temmplate
-  template.removeClass("h-invisible");
-}
-
 function render_songs(container, data, template, error) {
   if(!error) {
     for(let track of data) {

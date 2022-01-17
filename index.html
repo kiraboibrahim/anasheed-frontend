@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Anasheed music and artists</title>
+    <title>Anasheed | Tracks and Artists</title>
     <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
     <!-- For localhost>
     <base href="http://localhost/"-->
@@ -53,8 +53,9 @@
       rel="stylesheet">
 
     <link rel="stylesheet" href="css/reuse.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/audio-player.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!-- Google auth -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -92,13 +93,13 @@
           <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, singers">
       </form>
       <div class="user-profile">
-        <img src="images/account.png" class="btn user-profile__toggler">
+        <button class="btn btn-primary px-3 rounded-0">SIGN IN</button>
       </div>
     </nav>
 
     <section class="m-slide img-slide">
       <div class="overlay">
-        <h1 class="cta-message"> DOWNLOAD, LISTEN TO ANASHEED, FOR FREE</h1>
+        <h1 class="cta-message"> LIFE AINT COMPLETE WITHOUT ANASHEED.</h1>
         <div class="mt-3">
           <a href="singers.html" class="btn btn-warning rounded-0 px-4 cta-btn">LISTEN NOW</a>
         </div>
@@ -125,7 +126,7 @@
       <h2 class="m-media__body media__name artist__name artist-template__name"><a class="artist-template__link media__link artist__link" href="singers/123/maher-zain">Artist Name</a></h2>
   </div>
   <div class="top">
-    <article class="top-artists article">
+    <article class="top-artists article" data-loading="true">
       <!-- Popular artists -->
       <header class="top-artists__header article__header">
         <h1 class="top-artists__title article__title"> Popular Singers </h1>
@@ -137,7 +138,7 @@
       </footer>
     </article>
 
-    <div class="m-audio-player">
+    <div id="audio-player" class="m-audio-player">
       <h2 class="m-audio-player__current-track-name">No song selected</h2>
       <div class="m-audio-player__progress">
         <div class="m-audio-player__seek-slider-container">
@@ -155,7 +156,7 @@
       </div>
     </div>
 
-    <article class="top-tracks article">
+    <article class="top-tracks article" data-loading="true">
       <header class="top-tracks__header article__header">
         <h1 class="top-tracks__title article__title"> Top tracks </h1>
       </header>
