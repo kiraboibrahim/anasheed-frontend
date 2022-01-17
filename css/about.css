@@ -1,11 +1,12 @@
 .about {
   padding: 5%;
-  margin-top: 12px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
 }
 .icon {
   display: inline-block;
-  font-size: 45px;
+  font-size: 2em;
 }
 .icon-link {
   color: white;
@@ -14,6 +15,7 @@
   text-decoration: none;
   color: white;
 }
+
 .icon:not(.last) {
   margin-right: 4%;
 }
@@ -34,7 +36,7 @@
   margin-bottom: 4%;
 }
 .mission__title, .contact__title {
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -52,6 +54,6 @@
   }
   .mission {
     margin-right: 0;
-    margin-bottom: 5%;
+    margin-bottom: 20px;
   }
 }
