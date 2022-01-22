@@ -22,14 +22,29 @@ $(document).ready(function () {
     }
     animationID = requestAnimationFrame(fix_nav);
   }
+
+  function open_nav() {
+    $(".m-nav__menu").css("left", 0);
+  }
+  function close_nav() {
+    $(".m-nav__menu").css("left", "-100%");
+  }
   // Open the nav
   $(".m-nav__open-nav").click (function () {
-      $(".m-nav__menu").css("left", 0);
+    open_nav();
+      // Display the overlay to avoid interaction with the elements behind
+      $("body").attr("data-nav-open", "true");
   });
   // close the nav
   $(".m-nav__close-nav").click (function () {
-      $(".m-nav__menu").css("left", "-100%");
+      $("body").attr("data-nav-open", "false");
+      close_nav();
   });
+
+  $(".navigation-overlay").click(function () {
+    $("body").attr("data-nav-open", "false"); // First hide the overlay before closing navigation
+    close_nav();
+  }); // End click
 
   $(window).on("orientationchange resize", function () {
     // Recalculate the vertical positioin of the navigation bar

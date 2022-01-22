@@ -1,11 +1,39 @@
+.navigation-overlay {
+  display: none;
+}
 .search-form {
   flex: 3 1 auto;
   text-align: right;
   margin-right: 9px;
+  position: relative;
 }
 
 .search-form__input {
   width: 90%;
+}
+.search-form__input,
+.search-form__input::placeholder {
+  font-size: 15px;
+}
+.search-form__btn-submit {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  outline: 0;
+  padding: 0;
+  background: 0 0;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-icon {
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-right: 3px;
+  color: gray;
+}
+.m-nav__item--is-active .nav-icon {
+  color: white;
 }
 
 .user-profile {
@@ -13,15 +41,9 @@
   justify-content: flex-end;
   flex: 1 1 auto;
 }
-.user-profile__toggler {
-  margin: 0 auto 0 auto;
-  color: #516beb;
-  font-size: 30px;
-  padding: 3px;
-}
+
 .navigation {
   border: 1px solid #ededed;
-  box-shadow: 0 3px 4px #ededed;
 }
 .navigation__menu {
   margin-right: auto;
@@ -130,7 +152,18 @@
   font-size: 1.2em;
   font-weight: bold;
 }
-
+/* Mobile navigation overlay- 768px is the breakpoint used in reuse.css for mobile devices */
+@media screen and (max-width: 768px) {
+  body[data-nav-open=true] .navigation-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0;
+    display: block;
+    z-index: 100;
+  }
+}
 @media screen and (max-width: 850px) {
   .page-footer {
     flex-direction: column;
