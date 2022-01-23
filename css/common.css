@@ -9,23 +9,33 @@
 }
 
 .search-form__input {
+  padding-right: 13px;
+  padding-left: 13px;
   width: 90%;
 }
 .search-form__input,
 .search-form__input::placeholder {
   font-size: 15px;
 }
+.search-form__input::placeholder {
+  text-overflow: ellipsis;
+}
 .search-form__btn-submit {
   position: absolute;
-  top: 20%;
-  right: 5%;
-  outline: 0;
+  top: 21%;
+  right: 9px;
+  outline: none;
   padding: 0;
-  background: 0 0;
+  background: none;
   border: none;
   cursor: pointer;
 }
-
+.search-form__btn-submit:focus {
+  outline: none;
+}
+.mobile-signin-btn {
+  display: none;
+}
 .nav-icon {
   display: inline-block;
   vertical-align: text-bottom;
@@ -117,8 +127,8 @@
   padding: 3%;
 }
 .page-footer img {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
 }
 .domain-contact {
   flex: 1 1 auto;
@@ -161,7 +171,28 @@
     position: fixed;
     top: 0;
     display: block;
-    z-index: 100;
+    z-index: 30;
+    overflow: hidden;
+  }
+  /* For mobile nav, Use an icon instead of a text button */
+  button.desktop-signin-btn {
+    display: none;
+  }
+  /* display the icon */
+  .mobile-signin-btn {
+    display: block;
+    padding: 1px;;
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .mobile-signin-btn__img {
+    width: 40px;
+    height: 40px;
+  }
+  .mobile-signin-btn:focus {
+    outline: none;
   }
 }
 @media screen and (max-width: 850px) {

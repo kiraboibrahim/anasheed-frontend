@@ -7,7 +7,7 @@
     <base href="http://localhost/"-->
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0; viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Anasheed">
     <meta name="author" content="Kirabo Ibrahim">
@@ -88,13 +88,14 @@
         <li class="m-nav__item m-nav__item--is-active"><a href="about.html" class="m-nav__link"><i class="material-icons nav-icon">info</i> ABOUT</a></li>
       </ul>
       <form class="search-form" action="#">
-          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, singers">
+          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, artists">
           <button type="submit" class="search-form__btn-submit">
             <img src="images/search.png" style="width: 14px">
           </button>
       </form>
       <div class="user-profile">
-        <button class="btn btn-sm btn-primary px-3 rounded-0">SIGN IN</button>
+        <button class="desktop-signin-btn user-profile__btn-signin btn btn-primary px-3 rounded-0">SIGN IN</button>
+        <button class="mobile-signin-btn user-profile__btn-signin"><img class="mobile-signin-btn__img" src="images/login.png" alt="login"></button>
       </div>
     </nav>
 

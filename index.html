@@ -6,7 +6,7 @@
     <!-- For localhost>
     <base href="http://localhost/"-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0; viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Anasheed">
     <meta name="author" content="Kirabo Ibrahim">
@@ -90,26 +90,17 @@
         <li class="m-nav__item"><a href="about.html" class="m-nav__link"><i class="material-icons nav-icon">info</i> ABOUT</a></li>
       </ul>
       <form class="search-form" action="#">
-          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search artists and songs">
+          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, artists">
           <button type="submit" class="search-form__btn-submit">
             <img src="images/search.png" style="width: 14px">
           </button>
       </form>
       <div class="user-profile">
-        <button class="user-profile__btn-signin btn btn-sm btn-primary px-3 rounded-0">SIGN IN</button>
+        <button class="desktop-signin-btn user-profile__btn-signin btn btn-primary px-3 rounded-0">SIGN IN</button>
+        <button class="mobile-signin-btn user-profile__btn-signin"><img class="mobile-signin-btn__img" src="images/login.png" alt="login"></button>
       </div>
     </nav>
 
-    <section class="m-slide img-slide">
-      <div class="overlay">
-        <h1 class="cta-message"> LIFE AINT COMPLETE WITHOUT ANASHEED.</h1>
-        <div class="mt-3">
-          <a href="singers.html" class="btn btn-warning rounded-0 px-4 cta-btn">LISTEN NOW</a>
-        </div>
-      </div>
-      <!-- Image slides -->
-      <div class="m-slide__item img-slide__item"></div>
-  </section>
   <!-- Track Template -->
   <div class="m-media media track track-template template">
     <!-- A track component -->
@@ -132,7 +123,7 @@
     <article class="top-artists article" data-loading="true">
       <!-- Popular artists -->
       <header class="top-artists__header article__header">
-        <h1 class="top-artists__title article__title"> Popular Singers </h1>
+        <h1 class="top-artists__title article__title"> Popular Artists </h1>
       </header>
       <div class="top-artists__body article__body"></div>
 
