@@ -1,6 +1,52 @@
 .navigation-overlay {
   display: none;
 }
+.a2hs-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  z-index: 1500;
+  overflow: hidden;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.a2hs {
+  flex: 0 0 auto;
+  background-color: white;
+  border: 1px solid #ededed;
+  border-radius: 5px;
+  position: relative;
+  width: 50vw;
+
+}
+.a2hs__body {
+  padding: 20px;
+  display: flex;
+}
+
+.a2hs__img {
+  flex: 0 0 100px;
+  margin-right: 10px;
+  width: 50%;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.a2hs__close {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.a2hs__close-btn {
+  padding: 3px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
 .search-form {
   flex: 3 1 auto;
   text-align: right;
@@ -194,6 +240,10 @@
   .mobile-signin-btn:focus {
     outline: none;
   }
+  .a2hs {
+    width: 90vw;
+  }
+
 }
 @media screen and (max-width: 850px) {
   .page-footer {

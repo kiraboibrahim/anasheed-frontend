@@ -10,6 +10,7 @@
 }
 .icon-link {
   color: white;
+  font-size: 13px;
 }
 .icon-link:hover {
   text-decoration: none;
@@ -30,8 +31,9 @@
 }
 .mission {
   margin-right: 5%;
+
 }
-.mission__header, .contact__header {
+.mission__header {
   text-align: center;
   margin-bottom: 4%;
 }
@@ -43,7 +45,10 @@
 .mission__body {
   font-size: .9em;
 }
-
+.contact__header {
+  text-align: center;
+  margin-bottom: 25px;
+}
 .contact__body {
   text-align: center;
 }
@@ -54,6 +59,6 @@
   }
   .mission {
     margin-right: 0;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
