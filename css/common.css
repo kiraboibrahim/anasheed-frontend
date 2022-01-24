@@ -217,7 +217,7 @@
     position: fixed;
     top: 0;
     display: block;
-    z-index: 30;
+    z-index: 9;
     overflow: hidden;
   }
   /* For mobile nav, Use an icon instead of a text button */

@@ -4,7 +4,7 @@
     <title>Anasheed | Tracks and Artists</title>
     <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
     <!-- For localhost>
-    <base href="http://localhost/"-->
+    <base href="http://192.168.43.54/"-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
@@ -69,7 +69,6 @@
     <script defer src="js/lazyloading.js"></script>
     <script defer src="js/index.js"></script>
     <script defer src="js/audio-player.js"></script>
-    <script defer src="js/pwa_install.js"></script>
 
 
 
@@ -81,29 +80,9 @@
     <header class="m-logo">
       <a href="index.html"><img class="m-logo__img" src="images/logo.png" alt="Website Logo"></a>
     </header>
-    <div class="navigation-overlay"></div>
-    <div class="a2hs-wrapper">
-      <div class="a2hs">
-        <div class="a2hs__close">
-          <span class="btn material-icons a2hs__close-btn">close</span>
-        </div>
-        <div class="a2hs__body">
-          <div class="a2hs__img">
-          </div>
-          <div class="a2hs__body-text">
-            <p>
-              <span class="material-icons">install_mobile</span>
-              <span style="font-size: 90%;">INSTALL OUR FREE ANASHEED APP.</span>
-            </p>
-            <div class="a2hs__install-btn">
-              <button class="btn btn-sm btn-primary rounded-0">INSTALL NOW</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <nav class="m-nav navigation">
-      <i class="btn material-icons md-light m-nav__open-nav">menu</i>
+    <nav class="m-nav navigation h-sticky">
+      <div class="navigation-overlay"></div>
+      <span class="btn material-icons md-light m-nav__open-nav">menu</span>
       <ul class="m-nav__menu  navigation__menu">
         <i class="btn material-icons m-nav__close-nav">close</i>
         <li class="m-nav__item m-nav__item--is-active"><a href="index.html" class="m-nav__link"><i class="material-icons nav-icon">home</i> HOME</a></li>

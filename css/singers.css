@@ -3,7 +3,9 @@ main {
   margin-bottom: 100px;
 }
 body {
+  position: relative;
   overflow-x: hidden;
+  z-index: -2;
 }
 
 #audio-player {
@@ -13,7 +15,6 @@ body {
   bottom: 0;
   width: 100vw;
   background-color: #fff;
-  z-index: 10;
 }
 
 

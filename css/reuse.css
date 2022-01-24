@@ -146,12 +146,11 @@ input {
  }
 
  .h-sticky {
-   position: fixed;
+   position: sticky;
    top: 0;
+   /* Creates a new stacking context for nav_menu and the navigation overalay - A paraent with the highest z-index; */
+   z-index: 100;
    width: 100%;
-   opacity: 1.0;
-   /* This value is second highest z-index value, so I don't expect with a higher value */
-   z-index: 50;
  }
  /* Layout Styles */
  .l-table {
@@ -177,13 +176,15 @@ input {
     padding: 5%;
     margin: 0;
     /* This is the highest z-index value */
-    z-index: 1000;
+    z-index: 10;
     /* Animate the left position */
     transition-property: left;
     transition-duration: .6s;
     transition-timing-function: ease-in-out;
     transition-delay: 0;
-}
+  }
+
+
   .m-nav__item {
     flex: 0 1 auto;
     margin: 0;

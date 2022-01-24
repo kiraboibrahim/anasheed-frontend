@@ -4,7 +4,7 @@ $(document).ready(function () {
   let nav_pos_y = nav.offset().top;
   let fixed = false;
   let animationID;
-
+  /* This function is not invoked anywhere, I have resorted to using the sticky position for fixed navigation on scroll */
   function fix_nav () {
     if($(window).scrollTop() >= (nav_pos_y + margin)) {
       if(!fixed) {
@@ -46,10 +46,10 @@ $(document).ready(function () {
     close_nav();
   }); // End click
 
-  $(window).on("orientationchange resize", function () {
-    // Recalculate the vertical positioin of the navigation bar
+  /*$(window).on("orientationchange resize", function () {
+    //Recalculate the vertical positioin of the navigation bar
     nav_pos_y = nav.offset().top;
-  }); // End orientation change
+  });
 
-  requestAnimationFrame(fix_nav);
+  requestAnimationFrame(fix_nav);*/
 }); // end ready
