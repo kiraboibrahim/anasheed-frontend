@@ -2,9 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <title>Anasheed | Tracks and Artists</title>
-    <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
-    <!-- For localhost>
-    <base href="http://192.168.43.54/"-->
+    <!--base href="https://kiraboibrahim.github.io/anasheed-frontend/"-->
+    <!-- For localhost-->
+    <base href="http://localhost/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
@@ -62,6 +62,8 @@
 
 
     <!--  Javascript -->
+    <script defer src="js/config.js"></script>
+    <script defer src="js/fetch.js"></script>
     <script defer src="js/jquery-3.6.0.min.js"></script>
     <script defer src="js/bootstrap.min.js"></script>
     <script defer src="js/render.js"></script>
@@ -117,7 +119,7 @@
       <div class="m-media__img media__image artist__image artist-template__image lazy" data-src="images/maher-zain-4.jpeg">
           <!-- Singer image, will use a background image instead of img tag -->
       </div>
-      <h2 class="m-media__body media__name artist__name artist-template__name"><a class="artist-template__link media__link artist__link" href="singers/123/maher-zain">Artist Name</a></h2>
+      <h2 class="m-media__body media__name artist__name artist-template__name text-truncate"><a class="artist-template__link media__link artist__link" href="singers/123/maher-zain">Artist Name</a></h2>
   </div>
   <div class="top">
     <article class="top-artists article" data-loading="true">

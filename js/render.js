@@ -1,6 +1,8 @@
 function render_singers(container, data, template, error, restore=false) {
     if(!error) {
       for(let singer of data) {
+        singer.image = `${ARTIST_IMAGES_URL}/${singer.image}`;
+        console.log(singer.image);
         if(!restore) {
           // These images have not yet been loaded, so set the data-src attribute
           template.children(".singer-template__image").attr("data-src", singer.image).addClass("lazy");
@@ -11,7 +13,7 @@ function render_singers(container, data, template, error, restore=false) {
         }
         template.find(".singer-template__link").text(singer.name);
         template.find(".singer-template__num-songs").text(`${singer.num_songs} Clips`);
-        template.find(".singer-template__show-songs-link").attr("href", singer.singer_detail);
+        template.find(".singer-template__show-songs-link").attr("href", "#");
 
         // Append the singer to the container
         container.append(template);
@@ -28,10 +30,10 @@ function render_singers(container, data, template, error, restore=false) {
 function render_songs(container, data, template, error) {
   if(!error) {
     for(let track of data) {
-      template.find(".track-template__link").text(track.name).attr("href", track.stream_link);
-      template.find(".track-template__listens").text(`${track.listens} Listeners`);
-      template.find(".track-template__play").attr("href", track.stream_link);
-      template.find(".track-template__downnload").attr("href", track.download_link);
+      template.find(".track-template__link").text(track.name).attr("href", TEST_TRACK_STREAM);
+      template.find(".track-template__listens").text(`${track.listeners} Listeners`);
+      template.find(".track-template__play").attr("href", TEST_TRACK_STREAM);
+      template.find(".track-template__downnload").attr("href", TEST_TRACK_STREAM);
 
 
       // Append the singer to the container
@@ -49,6 +51,7 @@ function render_songs(container, data, template, error) {
 function render_singers_inline(container, data, template, error) {
   if(!error) {
     for(let singer of data) {
+      singer.image = `${ARTIST_IMAGES_URL}/${singer.image}`;
       // These images have not yet been loaded, so set the data-src attribute
       template.children(".artist-template__image").attr("data-src", singer.image).addClass("lazy");
 

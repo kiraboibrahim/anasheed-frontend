@@ -85,7 +85,7 @@
 .nav-icon {
   display: inline-block;
   vertical-align: text-bottom;
-  margin-right: 3px;
+  margin-right: 6px;
   color: gray;
 }
 .m-nav__item--is-active .nav-icon {
@@ -240,11 +240,14 @@
   .mobile-signin-btn:focus {
     outline: none;
   }
-  .a2hs {
-    width: 90vw;
+  .nav-icon {
+    margin-right: 20px;
   }
 
 }
+/*
+  This is just the breakpoint at which the footer starts to fall out from the layout, and not connected to any display devices
+*/
 @media screen and (max-width: 850px) {
   .page-footer {
     flex-direction: column;
