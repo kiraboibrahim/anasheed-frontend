@@ -78,11 +78,8 @@ $(document).ready(function () {
 
   fetch_data(ARTISTS_URL)
   .then(function (data) {
-<<<<<<< HEAD
     // Add the data to artists
-    artists.push(...data)
-=======
->>>>>>> bb38331f38aef5852432f5273090dc7bf7720da4
+    artists.push(...data);
     render_singers(media_container, data, singer_template, false);
 
     // Turn off the loading gif
