@@ -4,7 +4,7 @@
     <title>Anasheed | Tracks and Artists</title>
     <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
     <!-- For localhost>
-    <base href="http://192.168.43.54/"-->
+    <base href="http://localhost/"-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
@@ -66,9 +66,9 @@
     <script defer src="js/fetch.js"></script>
     <script defer src="js/jquery-3.6.0.min.js"></script>
     <script defer src="js/bootstrap.min.js"></script>
+    <script defer src="js/lazyloading.js"></script>
     <script defer src="js/render.js"></script>
     <script defer src="js/nav.js"></script>
-    <script defer src="js/lazyloading.js"></script>
     <script defer src="js/index.js"></script>
     <script defer src="js/audio-player.js"></script>
 
@@ -116,7 +116,7 @@
   </div>
   <!-- Inline Artist template -->
   <div class="m-media m-media--inline media artist artist-template template">
-      <div class="m-media__img media__image artist__image artist-template__image lazy" data-src="images/maher-zain-4.jpeg">
+      <div class="m-media__img media__image artist__image artist-template__image lazy">
           <!-- Singer image, will use a background image instead of img tag -->
       </div>
       <h2 class="m-media__body media__name artist__name artist-template__name text-truncate"><a class="artist-template__link media__link artist__link" href="singers/123/maher-zain">Artist Name</a></h2>

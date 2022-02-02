@@ -19,7 +19,7 @@ $(document).ready(function () {
   }); // End click
   // Play song
   $(".track-template__play").click(play_selected_song);
-  
+
   const top_tracks_container = $(".top-tracks__body");
   const top_artists_container = $(".top-artists__body");
   const inline_artist_template = $(".artist-template").clone(true).removeClass("template");

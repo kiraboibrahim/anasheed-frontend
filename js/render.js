@@ -20,6 +20,7 @@ function render_singers(container, data, template, error, restore=false) {
         container.append(template);
         template = template.clone(true);
       }
+      lazyload();
     }
     else {
       // Alert the user that error occured when fetching resources
@@ -63,6 +64,7 @@ function render_singers_inline(container, data, template, error) {
       container.append(template);
       template = template.clone(true);
     }
+    lazyload();
   }
   else {
     // Alert the user that error occured when fetching resources

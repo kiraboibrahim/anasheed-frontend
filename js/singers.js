@@ -4,6 +4,7 @@ let selected_singer = {
   num_songs: null,
 };
 
+let  artists = []; // The artists loaded will be stored to re render them incase back button is pushed
 
 const back_btn = $("#back-to-singers");
 const media_container = $("#media-wrapper");
@@ -19,7 +20,7 @@ function back_to_singers() {
 
 
   // Re render the artists, We are restoring the artists view, restore = true, since there is no need to lazy load the background images again
-  render_singers(media_container, singers_data, singer_template, false, true);
+  render_singers(media_container, artists, singer_template, false, true);
 }
 
 function play_selected_song(event) {
@@ -44,19 +45,9 @@ $(document).ready(function () {
   }); // End click
   // After page load, render the artists
   const singer_template = $(".singer-template").clone(true).removeClass("template");
-  // Fetch artists data and pass it to the render_singers fuction
-
-  fetch_data(ARTISTS_URL)
-  .then(function (data) {
-    render_singers(media_container, data, singer_template, false);
-
-    // Turn off the loading gif
-    singers_body.attr("data-loading", "false");
-  }); // End fetch_data
-
 
   // If a user clicks on the show-songs link, show artist's songs
-  $(".singer-template__show-songs-link").click(function (event) {
+  $("body").on('click', '.singer-template__show-songs-link', function (event) {
     event.preventDefault(); // Donot follow the link
     // Retrieve the template everytime you are going to use it, in order to have all the properties and events intact
     const track_template = $(".track-template").clone(true).removeClass("template");
@@ -73,14 +64,26 @@ $(document).ready(function () {
       //  Clear the media contianer (Every singer element is removed)
       media_container.empty();
 
-      render_songs(media_container, songs_data, track_template, false);
+      render_songs(media_container, data, track_template, false);
       // Turn off the loading gif
       singers_body.attr("data-loading", "false");
       back_btn.removeClass("h-hide");
-    });
+    }); // End fetch_data
 
     // Let the article title also show to which artist do the songs currently viewed belong
     singers_body.find(".singers__title").text(`${singer_name}'s tracks`);
   }); // End click
+
+  // Fetch artists data and pass it to the render_singers fuction
+
+  fetch_data(ARTISTS_URL)
+  .then(function (data) {
+    // Add the data to artists
+    artists.push(...data)
+    render_singers(media_container, data, singer_template, false);
+
+    // Turn off the loading gif
+    singers_body.attr("data-loading", "false");
+  }); // End fetch_data
 
 }); // end ready
