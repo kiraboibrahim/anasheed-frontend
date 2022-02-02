@@ -44,16 +44,6 @@ $(document).ready(function () {
   }); // End click
   // After page load, render the artists
   const singer_template = $(".singer-template").clone(true).removeClass("template");
-  // Fetch artists data and pass it to the render_singers fuction
-
-  fetch_data(ARTISTS_URL)
-  .then(function (data) {
-    render_singers(media_container, data, singer_template, false);
-
-    // Turn off the loading gif
-    singers_body.attr("data-loading", "false");
-  }); // End fetch_data
-
 
   // If a user clicks on the show-songs link, show artist's songs
   $(".singer-template__show-songs-link").click(function (event) {
@@ -82,5 +72,15 @@ $(document).ready(function () {
     // Let the article title also show to which artist do the songs currently viewed belong
     singers_body.find(".singers__title").text(`${singer_name}'s tracks`);
   }); // End click
+
+  // Fetch artists data and pass it to the render_singers fuction
+
+  fetch_data(ARTISTS_URL)
+  .then(function (data) {
+    render_singers(media_container, data, singer_template, false);
+
+    // Turn off the loading gif
+    singers_body.attr("data-loading", "false");
+  }); // End fetch_data
 
 }); // end ready
