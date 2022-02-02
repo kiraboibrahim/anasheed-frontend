@@ -30,10 +30,11 @@ function render_singers(container, data, template, error, restore=false) {
 function render_songs(container, data, template, error) {
   if(!error) {
     for(let track of data) {
-      template.find(".track-template__link").text(track.name).attr("href", TEST_TRACK_STREAM);
+      stream_url = `${HOST}/tracks/${track.id}/stream/${track.stream_reference}`;
+      template.find(".track-template__link").text(track.name).attr("href", stream_url);
       template.find(".track-template__listens").text(`${track.listeners} Listeners`);
-      template.find(".track-template__play").attr("href", TEST_TRACK_STREAM);
-      template.find(".track-template__downnload").attr("href", TEST_TRACK_STREAM);
+      template.find(".track-template__play").attr("href", stream_url);
+      template.find(".track-template__download").attr("href", stream_url);
 
 
       // Append the singer to the container

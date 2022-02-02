@@ -145,7 +145,7 @@ input[type="range"]:active::-moz-range-thumb {
 
 .m-audio-player__play {
   position: relative;
-  z-index: -1;
+  z-index: 0;
 }
 .m-audio-player__prev-btn,
 .m-audio-player__play-btn,
@@ -160,6 +160,7 @@ input[type="range"]:active::-moz-range-thumb {
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: 3;
   border: 4px solid transparent;
   margin: auto;
   border-top: 4px solid #519259;
