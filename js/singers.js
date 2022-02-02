@@ -4,119 +4,6 @@ let selected_singer = {
   num_songs: null,
 };
 
-let singers_data = [
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/artist-placeholder.jpg",
-    "num_songs": 100,
-    "singer_detail": "/maher-zain/1929"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/artist-placeholder.jpg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/artist-placeholder.jpg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/artist-placeholder.jpg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/artist-placeholder.jpg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-  {
-    "name": "Mesut Kurtis",
-    "image": "images/maher-zain-1.jpeg",
-    "num_songs": 192,
-    "singer_detail": "#"
-  },
-];// end data;
-
-let songs_data = [
-  {
-    "name": "Insha Allah",
-    "listens": 10,
-    "stream_link": "test_3.mp3",
-    "download_link": "test_3.mp3"
-  },
-  {
-    "name": "Ya Nabbi Salam Alayka",
-    "listens": 100,
-    "stream_link": "test.mp3",
-    "download_link": "test.mp3"
-  },
-  {
-    "name": "Burdah",
-    "listens": 200,
-    "stream_link": "test.mp3",
-    "download_link": "test.mp3"
-  },
-  {
-    "name": "Medinah",
-    "listens": 1000,
-    "stream_link": "test_3.mp3",
-    "download_link": "maher-zain/1929"
-  },
-  {
-    "name": "Palestein",
-    "listens": 59,
-    "stream_link": "test_3.mp3",
-    "download_link": "maher-zain/1929"
-  },
-]; // End Data
 
 const back_btn = $("#back-to-singers");
 const media_container = $("#media-wrapper");
@@ -159,7 +46,7 @@ $(document).ready(function () {
   const singer_template = $(".singer-template").clone(true).removeClass("template");
   // Fetch artists data and pass it to the render_singers fuction
 
-  fetch_data(ARITSTS_URL)
+  fetch_data(ARTISTS_URL)
   .then(function (data) {
     render_singers(media_container, data, singer_template, false);
 
