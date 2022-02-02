@@ -13,7 +13,8 @@ function render_singers(container, data, template, error, restore=false) {
         }
         template.find(".singer-template__link").text(singer.name);
         template.find(".singer-template__num-songs").text(`${singer.num_songs} Clips`);
-        template.find(".singer-template__show-songs-link").attr("href", "#");
+        artist_tracks_url = `${HOST}/artists/${singer.id}/tracks`;
+        template.find(".singer-template__show-songs-link").attr("href", artist_tracks_url);
 
         // Append the singer to the container
         container.append(template);

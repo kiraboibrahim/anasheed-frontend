@@ -149,17 +149,24 @@ function play_selected_song(event) {
 }
 
 $(document).ready(function () {
-
+  $(".track-template__play").click(play_selected_song);
+  back_btn.click(function () {
+    // Remove all tracks (if any) currently in the singers_container but dont remove the template
+    media_container.empty();
+    back_to_singers();
+  }); // End click
   // After page load, render the artists
   const singer_template = $(".singer-template").clone(true).removeClass("template");
   // Fetch artists data and pass it to the render_singers fuction
 
-  sleep(10000); // Simulate fetch request
+  fetch_data(ARITSTS_URL)
+  .then(function (data) {
+    render_singers(media_container, data, singer_template, false);
 
-  render_singers(media_container, singers_data, singer_template, false);
+    // Turn off the loading gif
+    singers_body.attr("data-loading", "false");
+  }); // End fetch_data
 
-  // Turn off the loading gif
-  singers_body.attr("data-loading", "false");
 
   // If a user clicks on the show-songs link, show artist's songs
   $(".singer-template__show-songs-link").click(function (event) {
@@ -174,25 +181,19 @@ $(document).ready(function () {
     // Turn on loading gif before fetching the artist's tracks
     singers_body.attr("data-loading", "true");
     // Fetch data over the network and render the songs
-    // let songs_data = fetch_data(singer_tracks_url, render_songs);
+    fetch_data(singer_tracks_url)
+    .then(function (data) {
+      //  Clear the media contianer (Every singer element is removed)
+      media_container.empty();
+
+      render_songs(media_container, songs_data, track_template, false);
+      // Turn off the loading gif
+      singers_body.attr("data-loading", "false");
+      back_btn.removeClass("h-hide");
+    });
 
     // Let the article title also show to which artist do the songs currently viewed belong
     singers_body.find(".singers__title").text(`${singer_name}'s tracks`);
-
-    //  Clear the media contianer (Every singer element is removed)
-    media_container.empty();
-
-    render_songs(media_container, songs_data, track_template, false);
-    // Turn off the loading gif
-    singers_body.attr("data-loading", "false");
-    back_btn.removeClass("h-hide");
   }); // End click
 
-  back_btn.click(function () {
-    // Remove all tracks (if any) currently in the singers_container but dont remove the template
-    media_container.empty();
-    back_to_singers();
-  }); // End click
-
-  $(".track-template__play").click(play_selected_song);
 }); // end ready
