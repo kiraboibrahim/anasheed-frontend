@@ -1,4 +1,4 @@
-function play_selected_song(event) {
+function play_song(event) {
   event.preventDefault();
   let target = $(event.target);
   let name = target.siblings(".track__name").text();
@@ -18,12 +18,12 @@ $(document).ready(function () {
     document.location = url;
   }); // End click
   // Play song
-  $(".track-template__play").click(play_selected_song);
-
+  $("body").on("click", ".track-template__play", play_song);
+  
   const top_tracks_container = $(".top-tracks__body");
   const top_artists_container = $(".top-artists__body");
-  const inline_artist_template = $(".artist-template").clone(true).removeClass("template");
-  const index_track_template = $(".track-template").clone(true).removeClass("template");
+  const inline_artist_template = $("#inline-artist-template").html();
+  const index_track_template = $("#track-template").html();
   //Fetch popular artists data and pass it to the render_singers_inline function
   fetch_data(POPULAR_ARTISTS_URL)
   .then(function (data) {

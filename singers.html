@@ -104,43 +104,47 @@
     <!-- End of every Common Element -->
 
     <!-- Singer Template -->
-    <div class="m-media media singer singer-template template">
-      <div class="m-media__image media__image singer__image singer-template__image"><!-- Album art --></div>
-      <div class="m-media__body singer__info singer-template__info">
-        <h2 class="media__name singer__name singer-template__name"> <a class="media__link singer-template__link singer__link" href="#">Maher Zain</a></h2>
-        <span class="singer__num-songs singer-template__num-songs d-block mb-3">20 Clips</span>
-        <a href="#" class="singer-template__show-songs-link btn btn-sm btn-danger rounded-0">Show Songs</a>
+    <script type="text/template" id="singer-template">
+      <div class="m-media media singer singer-template">
+        <div class="m-media__image media__image singer__image singer-template__image {{lazy}}" data-src="{{lazy_image}}" style="background-image: url({{image}})"></div>
+        <div class="m-media__body singer__info singer-template__info">
+          <h2 class="media__name singer__name singer-template__name"> <a class="media__link singer-template__link singer__link" href="{{detail_url}}">{{name}}</a></h2>
+          <span class="singer__num-songs singer-template__num-songs d-block mb-3">{{num_songs}} Clips</span>
+          <a href="{{tracks_url}}" class="singer-template__show-songs-link btn btn-sm btn-danger rounded-0">Show Songs</a>
+        </div>
       </div>
-    </div>
+    </script>
 
     <!-- Track Template -->
-    <div class="m-media media track track-template template">
-      <!-- A track component -->
-      <div class="m-media__image media__image track__album-art track-template__album-art"><!-- Album art --></div>
-      <div class="m-media__body track__info track-template__info">
-        <h2 class="media__name track__name track-template__name"> <a class="media__link track-template__link track__link" href="#">Track name </a></h2>
-        <span class="track__listens track-template__listens d-block mb-3"> 1000 plays </span>
-        <a href="#" class="track-template__play track__play btn btn-success rounded-0">Play</a>
-        <a href="#" class="track-template__download track__download btn btn-outline-danger rounded-0">Download</a>
+    <script type="text/template" id="track-template">
+      <div class="m-media media track track-template">
+        <!-- A track component -->
+        <div class="m-media__image media__image track__album-art track-template__album-art"><!-- Album art --></div>
+        <div class="m-media__body track__info track-template__info">
+          <h2 class="media__name track__name track-template__name"><a class="media__link track-template__link track__link" href="javascript:void();">{{name}}</a></h2>
+          <span class="track__listens track-template__listens d-block mb-3">{{listeners}} Listerners</span>
+          <a href="{{play_url}}" class="track-template__play track__play btn btn-success rounded-0">Play</a>
+          <a href="{{download_url}}" class="track-template__download track__download btn btn-outline-danger rounded-0">Download</a>
+        </div>
       </div>
-    </div>
+    </script>
 
 
     <main>
       <article class="article singers" data-loading="true">
         <header class="article__header d-flex align-items-center">
-          <button class="btn btn-primary mr-4 rounded-0 h-hide" id="back-to-singers">Back</button>
+          <button class="btn btn-primary mr-4 rounded-0 h-hide" id="back-btn">Back</button>
           <h2 class="article__title singers__title">Anasheed Artists</h2>
         </header>
 
-        <div class="article__body l-table media-wrapper" id="media-wrapper" data-context="singers"></div>
+        <div class="article__body l-table media-wrapper" id="media-wrapper"></div>
         <!-- loading div, always at the bottom -->
         <div class="loading"></div>
       </article>
     </main>
 
     <div class="m-audio-player" id="audio-player">
-      <h2 class="m-audio-player__current-track-name">No song selected</h2>
+      <h2 class="m-audio-player__current-track-name">No song playing</h2>
       <div class="m-audio-player__progress">
         <div class="m-audio-player__seek-slider-container">
           <input class="m-audio-player__seek-slider" type="range" min="0" max="100" value="0">

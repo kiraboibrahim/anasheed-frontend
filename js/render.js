@@ -1,24 +1,22 @@
 function render_singers(container, data, template, error, restore=false) {
+
     if(!error) {
       for(let singer of data) {
-        singer.image = `${ARTIST_IMAGES_URL}/${singer.image}`;
-        console.log(singer.image);
+        image = `${ARTIST_IMAGES_URL}/${singer.image}`;
         if(!restore) {
           // These images have not yet been loaded, so set the data-src attribute
-          template.children(".singer-template__image").attr("data-src", singer.image).addClass("lazy");
+          artist = template.replace("{{lazy_image}}", image)
+          .replace("{{lazy}}", "lazy").replace("image", "");
         } else {
           // set the background image, because it was already downloaded
-          template.children(".singer-template__image").css("backgroundImage", `url(${singer.image})`);
-
+          artist = template.replace("{{image}}", image);
         }
-        template.find(".singer-template__link").text(singer.name);
-        template.find(".singer-template__num-songs").text(`${singer.num_songs} Clips`);
         artist_tracks_url = `${HOST}/artists/${singer.id}/tracks`;
-        template.find(".singer-template__show-songs-link").attr("href", artist_tracks_url);
-
+        artist = artist.replace("{{name}}", singer.name)
+        .replace("{{num_songs}}", singer.num_songs)
+        .replace("{{tracks_url}}", artist_tracks_url);
         // Append the singer to the container
-        container.append(template);
-        template = template.clone(true);
+        container.append($(artist));
       }
       lazyload();
     }
@@ -32,16 +30,14 @@ function render_singers(container, data, template, error, restore=false) {
 function render_songs(container, data, template, error) {
   if(!error) {
     for(let track of data) {
-      stream_url = `${HOST}/tracks/${track.id}/stream/${track.stream_reference}`;
-      template.find(".track-template__link").text(track.name).attr("href", stream_url);
-      template.find(".track-template__listens").text(`${track.listeners} Listeners`);
-      template.find(".track-template__play").attr("href", stream_url);
-      template.find(".track-template__download").attr("href", stream_url);
-
+      stream_url = `${STREAM_URL}?ref=${track.stream_reference}&t=${track.id}`;
+      track_= template.replace("{{name}}",track.name)
+      .replace("{{listeners}}", track.listeners)
+      .replace("{{play_url}}", stream_url)
+      .replace("{{download_url}}", `${stream_url}&download=true`);
 
       // Append the singer to the container
-      container.append(template);
-      template = template.clone(true);
+      container.append($(track_));
     }
   }
   else {
@@ -54,15 +50,14 @@ function render_songs(container, data, template, error) {
 function render_singers_inline(container, data, template, error) {
   if(!error) {
     for(let singer of data) {
-      singer.image = `${ARTIST_IMAGES_URL}/${singer.image}`;
+      image = `${ARTIST_IMAGES_URL}/${singer.image}`;
       // These images have not yet been loaded, so set the data-src attribute
-      template.children(".artist-template__image").attr("data-src", singer.image).addClass("lazy");
-
-      template.find(".artist-template__link").text(singer.name);
+      artist = template.replace("{{lazy_image}}", image)
+      .replace("{{lazy}}", "lazy")
+      .replace("{{name}}", singer.name);
 
       // Append the singer to the container
-      container.append(template);
-      template = template.clone(true);
+      container.append($(artist));
     }
     lazyload();
   }

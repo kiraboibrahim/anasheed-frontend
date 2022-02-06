@@ -5,12 +5,11 @@ function preload_image(source) {
 }
 
 /*
-  The elements on which lazyloading is done are not available immediately after the DOM is downloaded, so I have decided to call the lazy load manually when it is needed ie in render functions 
+  The elements on which lazyloading is done are not available immediately after the DOM is downloaded, so I have decided to call the lazy load manually when it is needed ie in render functions
 */
 function lazyload() {
   if ("IntersectionObserver" in window) {
     lazyloadImages = document.querySelectorAll(".lazy");
-    console.log(lazyloadImages);
     var imageObserver = new IntersectionObserver(function(entries, observer) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {

@@ -1,52 +1,6 @@
 .navigation-overlay {
   display: none;
 }
-.a2hs-wrapper {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, .8);
-  position: fixed;
-  top: 0;
-  z-index: 1500;
-  overflow: hidden;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.a2hs {
-  flex: 0 0 auto;
-  background-color: white;
-  border: 1px solid #ededed;
-  border-radius: 5px;
-  position: relative;
-  width: 50vw;
-
-}
-.a2hs__body {
-  padding: 20px;
-  display: flex;
-}
-
-.a2hs__img {
-  flex: 0 0 100px;
-  margin-right: 10px;
-  width: 50%;
-  background-image: url(../images/logo.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.a2hs__close {
-  text-align: right;
-  margin-bottom: 5px;
-}
-
-.a2hs__close-btn {
-  padding: 3px;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-}
 .search-form {
   flex: 3 1 auto;
   text-align: right;
@@ -83,10 +37,7 @@
   display: none;
 }
 .nav-icon {
-  display: inline-block;
-  vertical-align: text-bottom;
-  margin-right: 6px;
-  color: gray;
+  display: none;
 }
 .m-nav__item--is-active .nav-icon {
   color: white;
@@ -118,7 +69,9 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
+.artist-template:hover, .track-template:hover, .singer-template:hover {
+  transform: scale(1.02);
+}
  .media {
    height: 120px;
    border: 1px solid #ededed;
@@ -164,7 +117,56 @@
   /* Templates are invisible */
   display: none;
 }
+.login-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .6);
+}
+.login-modal {
+  width: 450px;
+  height: 70vh;
+  border: 2px solid #ededed;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 3px;
+  position: relative;
+}
+.login-modal__close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.login-modal__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.login-modal__github-image {
+  display: inline-block;
+  margin-right: 5px;
+}
+.login-modal__btn {
+  color: black;
+  background-color: white;
+  border: 1px solid #ededed;
+  box-shadow: 0 0 3px #ededed;
+}
+.login-modal__btn:hover {
+  color: black;
+}
 /* Footer styles */
 .page-footer {
   width: 100vw;
@@ -242,6 +244,9 @@
   }
   .nav-icon {
     margin-right: 20px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    color: gray;
   }
 
 }
