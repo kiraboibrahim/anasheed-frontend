@@ -99,18 +99,67 @@ input[type="range"]:active::-moz-range-thumb {
 /* End */
 
 .m-audio-player {
+  --seek-before-width: 0%;
+  --buffered-width: 0%;
   padding: 1%;
   border: 1px solid #ededed;
   box-shadow: 0 0 5px #ededed;
-  --seek-before-width: 0%;
-  --buffered-width: 0%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 100%;
+  top: 0;
+  left: 0;
+  z-index:110;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all .3s;
+}
+.m-audio-player__header {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.m-audio-player__minimize {
+  height: 50px;
+}
+.m-audio-player__controls-wrapper {
+  flex: 0 0 160px;
+}
+
+.m-audio-player__album-art-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/* Turn off rotation animation when no audio is playing */
+.m-audio-player[data-playing-state=false]  .m-audio-player__album-art {
+  animation: none;
+}
+.m-audio-player__album-art {
+  background-image: url(../images/music.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #ededed;
+  border-radius: 50%;
+  animation: loading-spinner 5s linear infinite;
 }
 
 .m-audio-player__current-track-name {
   font-size: .9em;
   font-weight: bold;
   text-align: center;
+  align-self: center;
+  margin-bottom: 5px;
 }
+
 .m-audio-player__seek-slider-container {
   padding: 1%;
 }
@@ -135,6 +184,9 @@ input[type="range"]:active::-moz-range-thumb {
 .m-audio-player__controls {
   text-align: center;
 }
+.m-audio-player__minimize {
+     width: 60px;
+}
 
 .m-audio-player__prev,
 .m-audio-player__play,
@@ -151,6 +203,7 @@ input[type="range"]:active::-moz-range-thumb {
 .m-audio-player__play-btn,
 .m-audio-player__next-btn {
   cursor: pointer;
+  vertical-align: baseline;
 }
 
 .m-audio-player__play--is-loading::after {
@@ -170,14 +223,67 @@ input[type="range"]:active::-moz-range-thumb {
   animation: loading-spinner 1s ease infinite;
 }
 
+.m-audio-player--is-minimized .m-audio-player__minimize,
+.m-audio-player--is-minimized .m-audio-player__progress,
+.m-audio-player--is-minimized .m-audio-player__prev,
+.m-audio-player--is-minimized .m-audio-player__next {
+  display: none;
+}
+
+.m-audio-player.m-audio-player--is-minimized {
+  top: auto;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  flex-direction: row;
+  transition: all .5s;
+}
+
+/* There are only two elements that I align here ie: audio-header, audio controls */
+.m-audio-player--is-minimized .m-audio-player__header {
+  flex-direction: row;
+  /* Occupy the full height of audio-player */
+  height: 50px;
+  flex: 2 1 auto;
+}
+
+/* align elements in this sub element */
+.m-audio-player--is-minimized .m-audio-player__album-art-wrapper {
+  flex: 0 0 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+.m-audio-player--is-minimized .m-audio-player__current-track-name {
+  align-self: auto;
+  text-align: left;
+  margin: 0;
+  flex: 1 1 auto;
+}
+.m-audio-player--is-minimized .m-audio-player__controls-wrapper {
+  flex: 0 0 40px;
+}
+
+
+.m-audio-player--is-minimized .m-audio-player__album-art {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  animation: none;
+}
+
+
 .m-audio-player__play--is-loading .m-audio-player__play-btn {
   visibility: hidden;
 }
 
-.m-audido-player__prev, .m-audido-player__next, .m-audido-player__play {
-  font-size: 30px;
+.m-audio-player__prev-btn, .m-audio-player__next-btn, .m-audio-player__play-btn {
+  font-size: 32px;
 }
 
+.m-audio-player__play-btn {
+  font-size: 37px;
+}
 
 @keyframes loading-spinner {
   from {

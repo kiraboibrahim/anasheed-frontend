@@ -24,6 +24,7 @@ function back_to_singers() {
 
 function play_song(event) {
   event.preventDefault();
+  open_player(); // Show fullscreen player to user
   let target = $(event.target);
   let name = target.siblings(".track__name").text();
   let src = target.attr("href");
@@ -31,12 +32,18 @@ function play_song(event) {
     name: `${name}`,
     src: `${src}`
   };
+  let id_regex = /.*t=(?<id>\d+)/;
+  let id = src.match(id_regex).groups.id;
+  // Increment the listens for the song
+  count_listen(id);
   // From the audio-player.js
   play(track);
 }
 
 $(document).ready(function () {
   $("body").on("click", ".track-template__play", play_song);
+  // Capture the click event for download in order to increment the downloads for the track
+  $("body").on("click", ".track-template__download", count_download);
   back_btn.click(function () {
     // Remove all tracks (if any) currently in the singers_container but dont remove the template
     media_container.empty();

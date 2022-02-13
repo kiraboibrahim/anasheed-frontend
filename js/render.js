@@ -34,7 +34,7 @@ function render_songs(container, data, template, error) {
       track_= template.replace("{{name}}",track.name)
       .replace("{{listeners}}", track.listeners)
       .replace("{{play_url}}", stream_url)
-      .replace("{{download_url}}", `${stream_url}&download=true`);
+      .replace("{{download_url}}", `${stream_url}&d=1`);
 
       // Append the singer to the container
       container.append($(track_));

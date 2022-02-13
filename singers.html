@@ -60,13 +60,14 @@
 
     <!--  Javascript -->
     <script defer src="js/config.js"></script>
+    <script defer src="js/common.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script defer src="js/lazyloading.js"></script>
-    <script defer src="js/nav.js"></script>
     <!-- FETCH SCRIPT -->
     <script defer src="js/fetch.js"></script>
     <script defer src="js/render.js"></script>
+    <script defer src="js/nav.js"></script>
     <script defer src="js/audio-player.js"></script>
     <script defer src="js/singers.js"></script>
 
@@ -110,7 +111,7 @@
         <div class="m-media__body singer__info singer-template__info">
           <h2 class="media__name singer__name singer-template__name"> <a class="media__link singer-template__link singer__link" href="{{detail_url}}">{{name}}</a></h2>
           <span class="singer__num-songs singer-template__num-songs d-block mb-3">{{num_songs}} Clips</span>
-          <a href="{{tracks_url}}" class="singer-template__show-songs-link btn btn-sm btn-danger rounded-0">Show Songs</a>
+          <a style="font-size: .85em;" href="{{tracks_url}}" class="singer-template__show-songs-link btn btn-sm btn-danger rounded-0">Show Songs</a>
         </div>
       </div>
     </script>
@@ -123,11 +124,75 @@
         <div class="m-media__body track__info track-template__info">
           <h2 class="media__name track__name track-template__name"><a class="media__link track-template__link track__link" href="javascript:void();">{{name}}</a></h2>
           <span class="track__listens track-template__listens d-block mb-3">{{listeners}} Listerners</span>
-          <a href="{{play_url}}" class="track-template__play track__play btn btn-success rounded-0">Play</a>
-          <a href="{{download_url}}" class="track-template__download track__download btn btn-outline-danger rounded-0">Download</a>
+          <a style="font-size: .85em;" href="{{play_url}}" class="track-template__play track__play btn btn-success rounded-0">Play</a>
+          <a style="font-size: .85em;" href="{{download_url}}" target="_blank" class="track-template__download track__download btn btn-outline-danger rounded-0">Download</a>
         </div>
       </div>
     </script>
+    <!-- INLINE ARTIST TEMPLATE -->
+    <script type="text/template" id="inline-artist-template">
+      <div class="m-media m-media--inline media artist artist-template">
+          <div class="m-media__img media__image artist__image artist-template__image {{lazy}}", data-src="{{lazy_image}}">
+              <!-- Singer image, will use a background image instead of img tag -->
+          </div>
+          <h2 class="m-media__body media__name artist__name artist-template__name text-truncate"><a class="artist-template__link media__link artist__link" href="{{detail_url}}">{{name}}</a></h2>
+      </div>
+    </script>
+
+    <div class="search-modal">
+      <div class="search-modal__header">
+        <button class="btn search-modal__close"><span class="material-icons">arrow_back</span></button>
+        <form class="search-modal__form" action="#">
+            <input class="h-input-float search-modal__input" type="text" name="query" placeholder="Search tracks, artists" required>
+            <button type="submit" class="search-modal__submit-btn">
+              <img src="images/search.png" style="width: 14px">
+            </button>
+        </form>
+      </div>
+      <div class="search-modal__body" data-loading="false" data-open="false">
+        <div class="search-modal__filters">
+          <h1 class="search-modal__filter-title">Filters</h1>
+          <label style="display: inline-block; margin-right: 20px;">
+            <input id="search-artists" type="radio" value="artists" name="search-context">
+            Artists
+          </label>
+          <label>
+            <input id="search-tracks" type="radio" value="tracks" name="search-context" checked>
+            Tracks
+          </label>
+        </div>
+        <h1 class="search-modal__search-results-title h-hide">Results for <i class="q"></i></h1>
+        <div class="search-modal__search-results l-table"></div>
+        <div class="search-modal__loading"></div>
+      </div>
+    </div>
+
+    <div class="m-audio-player m-audio-player--is-minimized" data-playing-state="false">
+      <div class="m-audio-player__header">
+        <button class="material-icons btn m-audio-player__minimize" style="font-size: 32px;">expand_more</button>
+        <div class="m-audio-player__album-art-wrapper">
+          <div class="m-audio-player__album-art">
+          </div>
+        </div>
+        <h2 class="m-audio-player__current-track-name">No song playing</h2>
+      </div>
+      <div class="m-audio-player__controls-wrapper">
+        <div class="m-audio-player__progress">
+          <div class="m-audio-player__seek-slider-container">
+            <input class="m-audio-player__seek-slider" type="range" min="0" max="100" value="0">
+          </div>
+          <div class="m-audio-player__time">
+            <span class="m-audio-player__played-time">00:00</span>
+            <span class="m-audio-player__duration">--:--</span>
+          </div>
+        </div>
+        <div class="m-audio-player__controls">
+          <div class="m-audio-player__prev"><span class="material-icons m-audio-player__prev-btn">skip_previous</span></div>
+          <div class="m-audio-player__play"><span class="material-icons m-audio-player__play-btn">play_arrow</span></div>
+          <div class="m-audio-player__next"><span class="material-icons m-audio-player__next-btn">skip_next</span></div>
+        </div>
+      </div>
+    </div>
 
 
     <main>
@@ -143,22 +208,5 @@
       </article>
     </main>
 
-    <div class="m-audio-player" id="audio-player">
-      <h2 class="m-audio-player__current-track-name">No song playing</h2>
-      <div class="m-audio-player__progress">
-        <div class="m-audio-player__seek-slider-container">
-          <input class="m-audio-player__seek-slider" type="range" min="0" max="100" value="0">
-        </div>
-        <div class="m-audio-player__time">
-          <span class="m-audio-player__played-time">00:00</span>
-          <span class="m-audio-player__duration">--:--</span>
-        </div>
-      </div>
-      <div class="m-audio-player__controls">
-        <div class="m-audio-player__prev"><span class="material-icons m-audio-player__prev-btn">skip_previous</span></div>
-        <div class="m-audio-player__play"><span class="material-icons m-audio-player__play-btn">play_arrow</span></div>
-        <div class="m-audio-player__next"><span class="material-icons m-audio-player__next-btn">skip_next</span></div>
-      </div>
-    </div>
   </body>
 </html>

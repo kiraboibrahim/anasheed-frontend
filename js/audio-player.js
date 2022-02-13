@@ -1,5 +1,7 @@
 /* Variables to Elements */
 let audio_player_container = $(".m-audio-player");
+let audio_player_minimized = $(".m-audio-player--is-minimized");
+let audio_player_minimize_btn = $(".m-audio-player__minimize");
 let seek_slider = $(".m-audio-player__seek-slider");
 let current_track_name = $(".m-audio-player__current-track-name");
 let played_time = $(".m-audio-player__played-time");
@@ -19,9 +21,13 @@ let playlist = [];
 let current_track = 0;
 
 function switch_to_play() {
+  // Turn off the rotating album art animation when no audio is playing
+  audio_player_container.attr("data-playing-state", "false");
   play_btn.text("play_arrow");
 }
 function switch_to_pause() {
+  // Turn on the rotating album art animation when audio is playing
+  audio_player_container.attr("data-playing-state", "true");
   play_btn.text("pause");
 }
 
@@ -39,7 +45,9 @@ function play(track) {
     is_playing = true;
   }
 }
-function play_pause () {
+function play_pause (event) {
+  // Stop audio-player click events from executing
+  event.stopPropagation();
   if(audio.src) {
     // Only if there is an audio source
     if(is_playing) {
@@ -131,9 +139,13 @@ function format_time(time_in_seconds) {
   return result;
 }
 function switch_to_waiting_state() {
+  // Turn off the rotating album art animation when no audio is playing
+  audio_player_container.attr("data-playing-state", "false");
   play_container.addClass("m-audio-player__play--is-loading");
 }
 function switch_to_load_finished_state() {
+  // Turn on the rotating album art animation when audio is playing
+  audio_player_container.attr("data-playing-state", "true");
   play_container.removeClass("m-audio-player__play--is-loading");
 }
 
@@ -168,6 +180,17 @@ function while_playing() {
   set_played_time();
   r_af = requestAnimationFrame(while_playing);
 }
+
+function open_player() {
+  audio_player_container.removeClass("m-audio-player--is-minimized");
+}
+function minimize_player(event) {console.log("minimizing");
+event.stopPropagation();
+  audio_player_container.addClass("m-audio-player--is-minimized");
+}
+
+audio_player_container.click(open_player);
+audio_player_minimize_btn.click(minimize_player);
 
 seek_slider.on("change", function (event) {
   seek_to(event);

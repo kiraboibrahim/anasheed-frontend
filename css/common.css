@@ -1,3 +1,8 @@
+body {
+  /* This margin is to cater for the space taken by the audio player fixed at the bottom, to allow scrolling to end of page without blocking any elements */
+  margin-bottom: 70px;
+}
+
 .navigation-overlay {
   display: none;
 }
@@ -14,13 +19,16 @@
   width: 90%;
 }
 .search-form__input,
-.search-form__input::placeholder {
+.search-form__input::placeholder,
+.search-modal__input::placeholder {
   font-size: 15px;
 }
-.search-form__input::placeholder {
+.search-form__input::placeholder,
+.search-modal__input::placeholder {
   text-overflow: ellipsis;
 }
-.search-form__btn-submit {
+.search-form__btn-submit,
+.search-modal__submit-btn {
   position: absolute;
   top: 21%;
   right: 9px;
@@ -30,7 +38,8 @@
   border: none;
   cursor: pointer;
 }
-.search-form__btn-submit:focus {
+.search-form__btn-submit:focus,
+.search-modal__submit-btn:focus {
   outline: none;
 }
 .mobile-signin-btn {
@@ -82,9 +91,9 @@
  }
 
 .artist__name {
+  font-size: .9em;
   padding: 5px;
 }
-
 .media__image {
   height: 100%;
   width: 35%;
@@ -106,6 +115,7 @@
   background-image: url(../images/music.png);
 }
 .track__name {
+  font-size: .9em;
   margin-top: 5px;
 }
 .track__listens {
@@ -117,56 +127,90 @@
   /* Templates are invisible */
   display: none;
 }
-.login-modal-wrapper {
+
+.search-modal {
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 200;
+  left: -110%;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, .6);
-}
-.login-modal {
-  width: 450px;
-  height: 70vh;
-  border: 2px solid #ededed;
-  padding: 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border-radius: 3px;
-  position: relative;
-}
-.login-modal__close-btn {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-.login-modal__body {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  justify-content: center;
+  z-index: 100;
+  transition-property: left;
+  transition-delay: .1s;
+  transition-duration: .7s;
+  transition-timing-function: ease-out;
+  background-color: #fff;
+  overflow-y: scroll;
 }
 
-.login-modal__github-image {
-  display: inline-block;
-  margin-right: 5px;
+.search-modal__header {
+  padding: 10px;
+  border-bottom: 1px solid #ededed;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #fff;
 }
-.login-modal__btn {
-  color: black;
-  background-color: white;
-  border: 1px solid #ededed;
-  box-shadow: 0 0 3px #ededed;
+.search-modal__body {
+  padding: 10px;
+  overflow-y: auto;
 }
-.login-modal__btn:hover {
-  color: black;
+.search-modal__form {
+  position: relative;
+  flex: 1 1 auto;
+  text-align: right;
 }
+.search-modal__filters {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.search-modal__filter-title {
+  font-size: 1em;
+}
+
+.search-modal__close {
+  flex: 0 0 50px;
+  margin-right: 20px
+}
+.search-modal__input {
+  width: 100%;
+}
+
+.search-modal__body[data-loading=true] .search-modal__loading {
+  height: 50px;
+  display: block;
+  background-image: url(../images/loading.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+.search-modal__search-results {
+  /* This margin is to cater for the space taken by the audio player fixed at the bottom, to allow scrolling to end of page without blocking any elements */
+  margin-bottom: 70px;
+}
+.search-modal__search-results[data-context=artists] {
+  /* Render artists with the right width of 155px and not the default provided by .l-table */
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+}
+.search-modal__search-results .artist,
+.search-modal__search-results .artist__image {
+  border-radius: 0;
+}
+
+.search-modal__search-results[data-no-results=true] {
+  height: 80vh;
+  background-image: url(../images/no_results.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 350px 250px;
+}
+.search-modal__search-results-title {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
 /* Footer styles */
 .page-footer {
   width: 100vw;

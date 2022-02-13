@@ -98,14 +98,7 @@ input {
 .m-media__body {
   flex: 1 2 auto;
 }
-.m-slide {
-  height: 67vh;
-  width: auto;
-}
-.m-slide__item {
-  width: 100%;
-  height: 100%;
-}
+
 .article {
   display: flex;
   flex-direction: column;

@@ -63,6 +63,7 @@
 
     <!--  Javascript -->
     <script defer src="js/config.js"></script>
+    <script defer src="js/common.js"></script>
     <script defer src="js/fetch.js"></script>
     <script defer src="js/jquery-3.6.0.min.js"></script>
     <script defer src="js/bootstrap.min.js"></script>
@@ -92,7 +93,7 @@
         <li class="m-nav__item"><a href="about.html" class="m-nav__link"><i class="material-icons nav-icon">info</i> ABOUT</a></li>
       </ul>
       <form class="search-form" action="#">
-          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search songs, artists">
+          <input class="search-form__input h-input-float" type="text" name="query" placeholder="Search tracks, artists">
           <button type="submit" class="search-form__btn-submit">
             <img src="images/search.png" style="width: 14px">
           </button>
@@ -112,7 +113,7 @@
         <h2 class="media__name track__name track-template__name"><a class="media__link track-template__link track__link" href="javascript:void();">{{name}}</a></h2>
         <span class="track__listens track-template__listens d-block mb-3">{{listeners}} Listerners</span>
         <a href="{{play_url}}" class="track-template__play track__play btn btn-success rounded-0">Play</a>
-        <a href="{{download_url}}" class="track-template__download track__download btn btn-outline-danger rounded-0">Download</a>
+        <a href="{{download_url}}" target="_blank" class="track-template__download track__download btn btn-outline-danger rounded-0">Download</a>
       </div>
     </div>
   </script>
@@ -126,21 +127,44 @@
     </div>
   </script>
 
-  <div class="top">
-    <article class="top-artists article" data-loading="true">
-      <!-- Popular artists -->
-      <header class="top-artists__header article__header">
-        <h1 class="top-artists__title article__title"> Popular Artists </h1>
-      </header>
-      <div class="top-artists__body article__body"></div>
+  <div class="search-modal">
+    <div class="search-modal__header">
+      <button class="btn search-modal__close"><span class="material-icons">arrow_back</span></button>
+      <form class="search-modal__form" action="#">
+          <input class="h-input-float search-modal__input" type="text" name="query" placeholder="Search tracks, artists" required>
+          <button type="submit" class="search-modal__submit-btn">
+            <img src="images/search.png" style="width: 14px">
+          </button>
+      </form>
+    </div>
+    <div class="search-modal__body" data-loading="false" data-open="false">
+      <div class="search-modal__filters">
+        <h1 class="search-modal__filter-title">Filters</h1>
+        <label style="display: inline-block; margin-right: 20px;">
+          <input id="search-artists" type="radio" value="artists" name="search-context">
+          Artists
+        </label>
+        <label>
+          <input id="search-tracks" type="radio" value="tracks" name="search-context" checked>
+          Tracks
+        </label>
+      </div>
+      <h1 class="search-modal__search-results-title h-hide">Results for <i class="q"></i></h1>
+      <div class="search-modal__search-results l-table"></div>
+      <div class="search-modal__loading"></div>
+    </div>
+  </div>
 
-      <footer class="top-artists__footer article__footer">
-          <a href="singers.html"><button class="btn btn-primary rounded-0">More artists</button></a>
-      </footer>
-    </article>
-
-    <div id="audio-player" class="m-audio-player">
+  <div class="m-audio-player m-audio-player--is-minimized" data-playing-state="false">
+    <div class="m-audio-player__header">
+      <button class="material-icons btn m-audio-player__minimize" style="font-size: 32px;">expand_more</button>
+      <div class="m-audio-player__album-art-wrapper">
+        <div class="m-audio-player__album-art">
+        </div>
+      </div>
       <h2 class="m-audio-player__current-track-name">No song playing</h2>
+    </div>
+    <div class="m-audio-player__controls-wrapper">
       <div class="m-audio-player__progress">
         <div class="m-audio-player__seek-slider-container">
           <input class="m-audio-player__seek-slider" type="range" min="0" max="100" value="0">
@@ -156,6 +180,20 @@
         <div class="m-audio-player__next"><span class="material-icons m-audio-player__next-btn">skip_next</span></div>
       </div>
     </div>
+  </div>
+
+  <div class="top">
+    <article class="top-artists article" data-loading="true">
+      <!-- Popular artists -->
+      <header class="top-artists__header article__header">
+        <h1 class="top-artists__title article__title"> Popular Artists </h1>
+      </header>
+      <div class="top-artists__body article__body"></div>
+
+      <footer class="top-artists__footer article__footer">
+          <a href="singers.html"><button class="btn btn-primary rounded-0">More artists</button></a>
+      </footer>
+    </article>
 
     <article class="top-tracks article" data-loading="true">
       <header class="top-tracks__header article__header">
@@ -197,8 +235,8 @@
   </script>
 
 
-  <footer class="page-footer">
-    <!-- Site footer -->
+  <!--footer class="page-footer">
+    <Site footer >
     <div class="domain-contact">
       <a class="domain-contact__whatsapp" href="#"><img src="images/whatsapp.png" alt="Whatsapp Icon"></a>
       <a class="domain-contact__facebook" href="#"><img src="images/facebook.png" alt="Facebook Icon"></a>
@@ -218,6 +256,6 @@
       <div>Icons made by <a href="https://www.flaticon.com/authors/ruslan-babkin" title="Ruslan Babkin">Ruslan Babkin</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       <div>Icons made by <a href="https://www.flaticon.com/authors/riajulislam" title="riajulislam">riajulislam</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </div>
-  </footer>
+  </footer-->
   </body>
 </html>
