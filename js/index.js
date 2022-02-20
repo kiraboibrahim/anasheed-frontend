@@ -1,22 +1,3 @@
-function play_song(event) {
-  event.preventDefault();
-  open_player(); // Show fullscreen player to user
-  let target = $(event.target);
-  let name = target.siblings(".track__name").text();
-  let src = target.attr("href");
-  track = {
-    name: `${name}`,
-    src: `${src}`
-  };
-  let id_regex = /.*t=(?<id>\d+)/;
-  let id = src.match(id_regex).groups.id;
-  // Increment the listens for the song
-  count_listen(id);
-  // From the audio-player.js
-  play(track);
-}
-
-
 $(document).ready(function () {
   // When an artist card is clicked (not exactly the link), follow the artist's link
   $(".artist-template").click(function() {
@@ -27,6 +8,11 @@ $(document).ready(function () {
   $("body").on("click", ".track-template__play", play_song);
   // Capture the click event for download in order to increment the downloads for the track
   $("body").on("click", ".track-template__download", count_download);
+
+  $("body").on("click", ".m-media--inline", function () {
+    // Allow cards to follow the singer_detail_url when clicked
+    document.location.href = $(this).find(".media__link").attr("href");
+  }); // Edn click
 
   const top_tracks_container = $(".top-tracks__body");
   const top_artists_container = $(".top-artists__body");

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Anasheed Artists | Anasheed Tracks</title>
+    <title>Anasheed mp3 download</title>
     <base href="https://kiraboibrahim.github.io/anasheed-frontend/">
 
     <!-- For localhost>
@@ -69,12 +69,91 @@
     <script defer src="js/fetch.js"></script>
     <script defer src="js/render.js"></script>
     <script defer src="js/nav.js"></script>
-    <script defer src="js/singers.js"></script>
 
     <!-- Service workers -->
     <script async src="sw_reg.js"></script>
     <script async src="sw.js"></script>
 
+    <script defer>
+      $(document).ready(function () {
+        let location = document.location.href;
+        let id_match = location.match(/.*\?artist=(?<id>\d+).*/);
+        let id = null;
+        if (id_match) {
+          // Retrieve the artist id
+          id = id_match.groups.id;
+          let singer_tracks_url = `${HOST}/artists/${id}/tracks`;
+          let singer_detail_url = `${HOST}/artists/${id}`;
+          let tracks_article = $(".tracks");
+
+          function share_artist() {
+            if (navigator.share) {
+              navigator.share(
+                {
+                  title: document.title,
+                  url: document.location.href,
+                }
+              ).then(function () {
+                console.log("You are the people who grow this community, thank you very much");
+              }).catch(function (error) {
+                console.log("An error has occured, but thank you for the interest");
+              }); // end navigator.share
+            } else {
+              // Browser doesnot support the web share api
+              console.log("No support for web share api");
+            }
+          } // End share_artist
+
+          fetch_data(singer_detail_url)
+          .then(function (data) {
+            $(".artist-info__name").text(data.name)
+            $(".num-songs").text(data.num_songs);
+            $(".artist-info__image").css("background-image", `url(${ARTIST_IMAGES_URL}/${data.image})`);
+          }); // End fetch_data
+
+          fetch_data(singer_tracks_url)
+          .then(function (data) {
+            render_songs($("#media-wrapper"), data, $("#track-template").html(), false);
+            // Turn off the loading gif
+            tracks_article.attr("data-loading", "false");
+          }); // End fetch_data
+
+            $(".artist-info__share").click(function () {
+              share_artist();
+            }); // End click
+
+            $("body").on("click", ".track-template__play", play_song);
+            // Capture the click event for download in order to increment the downloads for the track
+            $("body").on("click", ".track-template__download", count_download);
+        } else {
+          document.location.href="singers.html"; // Redirect to the singers page if not artist parameter was given
+        }
+      }); // End ready
+    </script>
+
+    <style>
+      .artist-info {
+        display: flex;
+        border: 1px solid #ededed;
+        box-shadow: 0 0 3px #ededed;
+        margin-bottom: 20px;
+      }
+      .artist-info__name {
+        font-size: .9em;
+      }
+      .artist-info__image {
+        flex: 0 1 120px;
+        height: 110px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .artist-info__num-songs {
+        font-size: .8em;
+        color: gray;
+      }
+
+    </style>
   </head>
   <body data-nav-open="false">
     <!-- Common to every page -->
@@ -111,7 +190,7 @@
         <div class="m-media__body singer__info singer-template__info">
           <h2 class="media__name singer__name singer-template__name"> <a class="media__link singer-template__link singer__link" href="{{detail_url}}">{{name}}</a></h2>
           <span class="singer__num-songs singer-template__num-songs d-block mb-3">{{num_songs}} Clips</span>
-          <a style="font-size: .85em;" href="{{tracks_url}}" class="singer-template__show-songs-link btn btn-sm btn-danger">Show Songs</a>
+          <a style="font-size: .85em;" href="{{tracks_url}}" class="singer-template__show-songs-link btn btn-sm btn-danger rounded-0">Show Songs</a>
         </div>
       </div>
     </script>
@@ -196,10 +275,19 @@
 
 
     <main>
-      <article class="article singers" data-loading="true">
+      <div class="artist-info">
+        <div class="artist-info__image" style="background-image: url(http://192.168.43.54:8000/static/anasheed/images/artists/{{ image }});"></div>
+        <div style="display: flex; flex-direction: column; padding: 5px;">
+          <h2 class="artist-info__name"><!-- {{ name }} --></h2>
+          <span class="artist-info__num-songs d-block"><span class="num-songs"><!-- {{ num_songs }} --></span> Clips</span>
+          <div style="margin-top: auto;">
+            <button class="btn btn-sm btn-primary artist-info__share">SHARE</button>
+          </div>
+        </div>
+      </div>
+      <article class="article singers tracks" data-loading="true">
         <header class="article__header d-flex align-items-center">
-          <button class="btn btn-primary mr-4 h-hide" id="back-btn">Back</button>
-          <h2 class="article__title singers__title">Anasheed Artists</h2>
+          <h2 class="article__title singers__title tracks__title">Tracks</h2>
         </header>
 
         <div class="article__body l-table media-wrapper" id="media-wrapper"></div>

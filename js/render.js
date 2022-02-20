@@ -54,7 +54,8 @@ function render_singers_inline(container, data, template, error) {
       // These images have not yet been loaded, so set the data-src attribute
       artist = template.replace("{{lazy_image}}", image)
       .replace("{{lazy}}", "lazy")
-      .replace("{{name}}", singer.name);
+      .replace("{{name}}", singer.name)
+      .replace("{{detail_url}}", `singer.html?artist=${singer.id}`);
 
       // Append the singer to the container
       container.append($(artist));

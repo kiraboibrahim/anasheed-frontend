@@ -22,24 +22,6 @@ function back_to_singers() {
   render_singers(media_container, artists, singer_template, false, true);
 }
 
-function play_song(event) {
-  event.preventDefault();
-  open_player(); // Show fullscreen player to user
-  let target = $(event.target);
-  let name = target.siblings(".track__name").text();
-  let src = target.attr("href");
-  track = {
-    name: `${name}`,
-    src: `${src}`
-  };
-  let id_regex = /.*t=(?<id>\d+)/;
-  let id = src.match(id_regex).groups.id;
-  // Increment the listens for the song
-  count_listen(id);
-  // From the audio-player.js
-  play(track);
-}
-
 $(document).ready(function () {
   $("body").on("click", ".track-template__play", play_song);
   // Capture the click event for download in order to increment the downloads for the track

@@ -66,7 +66,7 @@ $(document).ready(function () {
       template = artist_template;
       search_results.attr("data-context", "artists");
     }
-
+    search_results.attr("data-no-results", "false"); // Remove the no results bg-image if the previous search yielded no results
     let query = search_modal_input.val();
     if (query != '') {
       submit_url = `${submit_url}?q=${query}`;
@@ -77,6 +77,7 @@ $(document).ready(function () {
       // Clear any results that were rendered before
       search_results.empty();
       search_modal_body.attr("data-loading", "true"); // Show status loading to the user
+      search_results.attr("data-no-results", "false"); // Begin without any previous state form past searches
       fetch_data(submit_url)
       .then(function (data) {
         if(data.length == 0) {
